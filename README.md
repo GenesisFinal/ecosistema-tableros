@@ -10,13 +10,13 @@ Diseñado y estructurado bajo los lineamientos oficiales de identidad visual del
 
 | Herramienta / Monitor | URL | Categoría |
 | :--- | :--- | :--- |
-| **Monitor Económico y del Mercado Asegurador** | [Acceder](https://genesisfinal.github.io/monitor-economico-financiero/) | Macroeconomía, Inflación & Seguros |
-| **Monitor de Activos Financieros** | [Acceder](https://genesisfinal.github.io/monitor-financiero/) | Renta Fija, Variable & FX |
+| **Tablero de Retiro** | [Acceder](https://genesisfinal.github.io/tablero-retiro/) | Fondos & Cuentas Individuales |
+| **Balances de Aseguradoras** | [Acceder](https://genesisfinal.github.io/tablero-sinensup/) | Balances, Solvencia & SSN |
+| **Económico y Mercado Asegurador** | [Acceder](https://genesisfinal.github.io/monitor-economico-financiero/) | Macroeconomía, Inflación & Seguros |
+| **Demográfico y Estadístico** | [Acceder](https://genesisfinal.github.io/monitor-demografico-estadistico/) | Estructura Etaria & INDEC |
 | **Calculadora Actuarial** | [Acceder](https://genesisfinal.github.io/calculadora-actuarial/) | Biometría, Reservas & Primas |
-| **Monitor Demográfico y Estadístico** | [Acceder](https://genesisfinal.github.io/monitor-demografico-estadistico/) | Estructura Etaria & INDEC |
-| **Tablero de Seguros de Retiro** | [Acceder](https://genesisfinal.github.io/tablero-retiro/) | Fondos & Cuentas Individuales |
-| **Tablero de Balances de Aseguradoras (SINENSUP)** | [Acceder](https://genesisfinal.github.io/tablero-sinensup/) | Balances, Solvencia & SSN |
-| **Monitor de Mercados Financieros (Rava)** | [Acceder](https://mercado.rava.com/) | Cotizaciones BYMA en Vivo |
+| **Monitor Activos Financieros** | [Acceder](https://genesisfinal.github.io/monitor-financiero/) | Renta Fija, Variable & FX |
+| **Monitor de Mercado Financieros** | [Acceder](https://mercado.rava.com/) | Cotizaciones BYMA en Vivo |
 
 ---
 
