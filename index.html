@@ -466,12 +466,12 @@
     }
 
     /* ==========================================================
-       DASHBOARD CARDS GRID
+       DASHBOARD CARDS GRID (COMPACT & HOVER OVERLAY)
        ========================================================== */
     .dashboard-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 24px;
+      gap: 20px;
     }
     @media (min-width: 640px) {
       .dashboard-grid {
@@ -483,28 +483,34 @@
         grid-template-columns: repeat(3, 1fr);
       }
     }
+    @media (min-width: 1280px) {
+      .dashboard-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
 
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-md);
       overflow: hidden;
       display: flex;
       flex-direction: column;
       transition: var(--transition);
       position: relative;
       box-shadow: var(--shadow-sm);
+      min-height: 220px;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
       box-shadow: var(--shadow-md);
-      border-color: rgba(226, 0, 57, 0.3);
+      border-color: rgba(226, 0, 57, 0.4);
     }
 
     /* Top Color Bar on Card based on Category */
     .card-accent-bar {
-      height: 4px;
+      height: 3px;
       width: 100%;
       background: var(--ls-red-primary);
     }
@@ -517,31 +523,32 @@
     .card[data-category="mercados"] .card-accent-bar { background: #6366f1; }
 
     .card-body {
-      padding: 24px;
+      padding: 16px 18px 12px;
       display: flex;
       flex-direction: column;
       flex: 1;
+      position: relative;
     }
 
     .card-header-top {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 16px;
+      gap: 10px;
+      margin-bottom: 12px;
     }
 
     .card-icon-wrapper {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.35rem;
+      font-size: 1.15rem;
       color: #ffffff;
       flex-shrink: 0;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
     }
 
     .card[data-category="economia"] .card-icon-wrapper { background: linear-gradient(135deg, var(--ls-red-primary), var(--ls-red-dark)); }
@@ -553,21 +560,21 @@
     .card[data-category="mercados"] .card-icon-wrapper { background: linear-gradient(135deg, #0284c7, #0369a1); }
 
     .category-chip {
-      font-size: 0.725rem;
+      font-size: 0.68rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      padding: 4px 10px;
+      padding: 3px 8px;
       border-radius: var(--radius-pill);
       background: #f1f5f9;
       color: var(--text-muted);
     }
 
     .card-title {
-      font-size: 1.18rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: var(--ls-charcoal);
-      line-height: 1.3;
+      line-height: 1.25;
       margin-bottom: 10px;
       letter-spacing: -0.01em;
       transition: var(--transition);
@@ -576,58 +583,153 @@
       color: var(--ls-red-primary);
     }
 
-    .card-description {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-      margin-bottom: 20px;
-      flex: 1;
-    }
-
     .card-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 20px;
+      gap: 5px;
+      margin-top: auto;
+      margin-bottom: 2px;
     }
     .card-tag {
-      font-size: 0.725rem;
-      background: #f4f6f9;
-      color: #4b5563;
-      padding: 3px 8px;
+      font-size: 0.68rem;
+      background: #f1f4f8;
+      color: #475569;
+      padding: 2px 6px;
       border-radius: 4px;
       font-weight: 500;
     }
 
+    /* Hover overlay que muestra el texto explicativo al pasar el mouse */
+    .card-hover-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(145deg, rgba(28, 31, 36, 0.97), rgba(43, 48, 56, 0.98));
+      color: #ffffff;
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(6px);
+      transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s;
+      z-index: 10;
+      border-radius: inherit;
+    }
+
+    .card:hover .card-hover-overlay {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .overlay-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+    .overlay-category {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--ls-red-vibrant);
+    }
+    .overlay-info-icon {
+      font-size: 0.75rem;
+      color: #94a3b8;
+    }
+
+    .overlay-text {
+      font-size: 0.825rem;
+      line-height: 1.48;
+      color: #f1f5f9;
+      font-weight: 400;
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .overlay-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .overlay-btn-launch {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--ls-red-primary);
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 7px 12px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      flex: 1;
+      justify-content: center;
+    }
+    .overlay-btn-launch:hover {
+      background: var(--ls-red-vibrant);
+      color: #ffffff;
+    }
+
+    .overlay-btn-details {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #e2e8f0;
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: var(--transition);
+    }
+    .overlay-btn-details:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+    }
+
     .card-footer {
       border-top: 1px solid var(--border-color);
-      padding: 16px 24px;
+      padding: 10px 16px;
       background: #fafbfc;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
     }
 
     .btn-launch {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       background: var(--ls-red-primary);
       color: #ffffff;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      padding: 9px 16px;
+      padding: 7px 12px;
       border-radius: var(--radius-sm);
       transition: var(--transition);
-      box-shadow: 0 2px 6px rgba(226, 0, 57, 0.2);
+      box-shadow: 0 2px 5px rgba(226, 0, 57, 0.2);
       flex: 1;
       justify-content: center;
     }
     .btn-launch:hover {
       background: var(--ls-red-dark);
       transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(226, 0, 57, 0.3);
+      box-shadow: 0 4px 10px rgba(226, 0, 57, 0.3);
       color: #ffffff;
     }
 
@@ -635,14 +737,20 @@
       background: transparent;
       border: 1px solid var(--border-color);
       color: var(--text-muted);
-      width: 38px;
-      height: 38px;
+      width: 32px;
+      height: 32px;
       border-radius: var(--radius-sm);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       transition: var(--transition);
+      font-size: 0.85rem;
+    }
+    .btn-details:hover {
+      border-color: var(--ls-red-primary);
+      color: var(--ls-red-primary);
+      background: #ffffff;
     }
     .btn-details:hover {
       border-color: var(--ls-red-primary);
@@ -1011,13 +1119,9 @@
             <span class="category-chip">Economía & Seguros</span>
           </div>
           <h3 class="card-title">Monitor Económico y del Mercado Asegurador</h3>
-          <p class="card-description">
-            Monitoreo macroeconómico, evolución de la inflación, tasas de interés, producción del mercado asegurador y análisis siniestral con datos consolidados.
-          </p>
           <div class="card-tags">
             <span class="card-tag">Macroeconomía</span>
             <span class="card-tag">Mercado Asegurador</span>
-            <span class="card-tag">Producción SSN</span>
             <span class="card-tag">Inflación</span>
           </div>
         </div>
@@ -1029,6 +1133,25 @@
           <button class="btn-details" title="Ver detalles" onclick="openModal('economia')">
             <i class="fa-solid fa-circle-info"></i>
           </button>
+        </div>
+        <!-- Hover Overlay Descriptivo -->
+        <div class="card-hover-overlay">
+          <div class="overlay-top">
+            <span class="overlay-category"><i class="fa-solid fa-chart-pie"></i> Economía & Seguros</span>
+            <i class="fa-solid fa-circle-info overlay-info-icon"></i>
+          </div>
+          <p class="overlay-text">
+            Monitoreo macroeconómico, evolución de la inflación, tasas de interés, producción del mercado asegurador y análisis siniestral con datos consolidados.
+          </p>
+          <div class="overlay-footer">
+            <a href="https://genesisfinal.github.io/monitor-economico-financiero/" target="_blank" rel="noopener noreferrer" class="overlay-btn-launch">
+              <span>Abrir Tablero</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <button class="overlay-btn-details" title="Ver ficha completa" onclick="openModal('economia')">
+              <i class="fa-solid fa-list-check"></i>
+            </button>
+          </div>
         </div>
       </article>
 
@@ -1043,13 +1166,9 @@
             <span class="category-chip">Finanzas & Inversión</span>
           </div>
           <h3 class="card-title">Monitor de Activos Financieros</h3>
-          <p class="card-description">
-            Evolución y cotizaciones de activos de renta fija, renta variable, curvas de rendimientos, tipos de cambio y seguimiento de carteras de inversión.
-          </p>
           <div class="card-tags">
             <span class="card-tag">Renta Fija</span>
             <span class="card-tag">Renta Variable</span>
-            <span class="card-tag">Dólar / FX</span>
             <span class="card-tag">Curvas Soberanas</span>
           </div>
         </div>
@@ -1061,6 +1180,25 @@
           <button class="btn-details" title="Ver detalles" onclick="openModal('finanzas')">
             <i class="fa-solid fa-circle-info"></i>
           </button>
+        </div>
+        <!-- Hover Overlay Descriptivo -->
+        <div class="card-hover-overlay">
+          <div class="overlay-top">
+            <span class="overlay-category"><i class="fa-solid fa-arrow-trend-up"></i> Finanzas & Inversión</span>
+            <i class="fa-solid fa-circle-info overlay-info-icon"></i>
+          </div>
+          <p class="overlay-text">
+            Evolución y cotizaciones de activos de renta fija, renta variable, curvas de rendimientos, tipos de cambio y seguimiento de carteras de inversión.
+          </p>
+          <div class="overlay-footer">
+            <a href="https://genesisfinal.github.io/monitor-financiero/" target="_blank" rel="noopener noreferrer" class="overlay-btn-launch">
+              <span>Abrir Tablero</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <button class="overlay-btn-details" title="Ver ficha completa" onclick="openModal('finanzas')">
+              <i class="fa-solid fa-list-check"></i>
+            </button>
+          </div>
         </div>
       </article>
 
@@ -1075,14 +1213,10 @@
             <span class="category-chip">Actuarial & Matemático</span>
           </div>
           <h3 class="card-title">Calculadora Actuarial</h3>
-          <p class="card-description">
-            Herramienta biométrica y actuarial para cálculo de primas puras, reservas matemáticas, tablas de mortalidad dinámicas y factores conmutativos.
-          </p>
           <div class="card-tags">
             <span class="card-tag">Tablas Mortalidad</span>
-            <span class="card-tag">Reservas Matemáticas</span>
+            <span class="card-tag">Reservas</span>
             <span class="card-tag">Primas Puras</span>
-            <span class="card-tag">Conmutaciones</span>
           </div>
         </div>
         <div class="card-footer">
@@ -1093,6 +1227,25 @@
           <button class="btn-details" title="Ver detalles" onclick="openModal('actuarial')">
             <i class="fa-solid fa-circle-info"></i>
           </button>
+        </div>
+        <!-- Hover Overlay Descriptivo -->
+        <div class="card-hover-overlay">
+          <div class="overlay-top">
+            <span class="overlay-category"><i class="fa-solid fa-calculator"></i> Actuarial & Matemático</span>
+            <i class="fa-solid fa-circle-info overlay-info-icon"></i>
+          </div>
+          <p class="overlay-text">
+            Herramienta biométrica y actuarial para cálculo de primas puras, reservas matemáticas, tablas de mortalidad dinámicas y factores conmutativos.
+          </p>
+          <div class="overlay-footer">
+            <a href="https://genesisfinal.github.io/calculadora-actuarial/" target="_blank" rel="noopener noreferrer" class="overlay-btn-launch">
+              <span>Abrir Tablero</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <button class="overlay-btn-details" title="Ver ficha completa" onclick="openModal('actuarial')">
+              <i class="fa-solid fa-list-check"></i>
+            </button>
+          </div>
         </div>
       </article>
 
@@ -1107,13 +1260,9 @@
             <span class="category-chip">Demografía & Población</span>
           </div>
           <h3 class="card-title">Monitor Demográfico y Estadístico</h3>
-          <p class="card-description">
-            Estructuras etarias, pirámides poblacionales, esperanza de vida al nacer, proyecciones demográficas territoriales e indicadores sociodemográficos.
-          </p>
           <div class="card-tags">
             <span class="card-tag">Pirámides Etarias</span>
-            <span class="card-tag">Esperanza de Vida</span>
-            <span class="card-tag">Censos & Proyecciones</span>
+            <span class="card-tag">Esperanza Vida</span>
             <span class="card-tag">INDEC</span>
           </div>
         </div>
@@ -1125,6 +1274,25 @@
           <button class="btn-details" title="Ver detalles" onclick="openModal('demografico')">
             <i class="fa-solid fa-circle-info"></i>
           </button>
+        </div>
+        <!-- Hover Overlay Descriptivo -->
+        <div class="card-hover-overlay">
+          <div class="overlay-top">
+            <span class="overlay-category"><i class="fa-solid fa-users-viewfinder"></i> Demografía & Población</span>
+            <i class="fa-solid fa-circle-info overlay-info-icon"></i>
+          </div>
+          <p class="overlay-text">
+            Estructuras etarias, pirámides poblacionales, esperanza de vida al nacer, proyecciones demográficas territoriales e indicadores sociodemográficos.
+          </p>
+          <div class="overlay-footer">
+            <a href="https://genesisfinal.github.io/monitor-demografico-estadistico/" target="_blank" rel="noopener noreferrer" class="overlay-btn-launch">
+              <span>Abrir Tablero</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <button class="overlay-btn-details" title="Ver ficha completa" onclick="openModal('demografico')">
+              <i class="fa-solid fa-list-check"></i>
+            </button>
+          </div>
         </div>
       </article>
 
@@ -1139,14 +1307,10 @@
             <span class="category-chip">Seguros de Retiro</span>
           </div>
           <h3 class="card-title">Tablero de Seguros de Retiro</h3>
-          <p class="card-description">
-            Seguimiento de fondos de retiro, rentabilidades nominales y reales garantizadas, evolución de cuentas individuales y comparativas de coberturas.
-          </p>
           <div class="card-tags">
             <span class="card-tag">Planes de Retiro</span>
-            <span class="card-tag">Rentabilidad Garantizada</span>
-            <span class="card-tag">Fondos Administrados</span>
-            <span class="card-tag">Cuentas Individuales</span>
+            <span class="card-tag">Garantizada</span>
+            <span class="card-tag">Cuentas</span>
           </div>
         </div>
         <div class="card-footer">
@@ -1157,6 +1321,25 @@
           <button class="btn-details" title="Ver detalles" onclick="openModal('retiro')">
             <i class="fa-solid fa-circle-info"></i>
           </button>
+        </div>
+        <!-- Hover Overlay Descriptivo -->
+        <div class="card-hover-overlay">
+          <div class="overlay-top">
+            <span class="overlay-category"><i class="fa-solid fa-piggy-bank"></i> Seguros de Retiro</span>
+            <i class="fa-solid fa-circle-info overlay-info-icon"></i>
+          </div>
+          <p class="overlay-text">
+            Seguimiento de fondos de retiro, rentabilidades nominales y reales garantizadas, evolución de cuentas individuales y comparativas de coberturas.
+          </p>
+          <div class="overlay-footer">
+            <a href="https://genesisfinal.github.io/tablero-retiro/" target="_blank" rel="noopener noreferrer" class="overlay-btn-launch">
+              <span>Abrir Tablero</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <button class="overlay-btn-details" title="Ver ficha completa" onclick="openModal('retiro')">
+              <i class="fa-solid fa-list-check"></i>
+            </button>
+          </div>
         </div>
       </article>
 
@@ -1171,14 +1354,10 @@
             <span class="category-chip">Balances & Solvencia SSN</span>
           </div>
           <h3 class="card-title">Tablero de Balances de Aseguradoras</h3>
-          <p class="card-description">
-            Estados contables del sistema SINENSUP / SSN, balances trimestrales de aseguradoras, rankings de producción, ratios de solvencia y liquidez.
-          </p>
           <div class="card-tags">
             <span class="card-tag">SINENSUP SSN</span>
-            <span class="card-tag">Estados Contables</span>
-            <span class="card-tag">Ratios de Solvencia</span>
-            <span class="card-tag">Ranking Aseguradoras</span>
+            <span class="card-tag">Solvencia</span>
+            <span class="card-tag">Ranking</span>
           </div>
         </div>
         <div class="card-footer">
@@ -1189,6 +1368,25 @@
           <button class="btn-details" title="Ver detalles" onclick="openModal('balances')">
             <i class="fa-solid fa-circle-info"></i>
           </button>
+        </div>
+        <!-- Hover Overlay Descriptivo -->
+        <div class="card-hover-overlay">
+          <div class="overlay-top">
+            <span class="overlay-category"><i class="fa-solid fa-scale-balanced"></i> Balances & Solvencia</span>
+            <i class="fa-solid fa-circle-info overlay-info-icon"></i>
+          </div>
+          <p class="overlay-text">
+            Estados contables del sistema SINENSUP / SSN, balances trimestrales de aseguradoras, rankings de producción, ratios de solvencia y liquidez.
+          </p>
+          <div class="overlay-footer">
+            <a href="https://genesisfinal.github.io/tablero-sinensup/" target="_blank" rel="noopener noreferrer" class="overlay-btn-launch">
+              <span>Abrir Tablero</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <button class="overlay-btn-details" title="Ver ficha completa" onclick="openModal('balances')">
+              <i class="fa-solid fa-list-check"></i>
+            </button>
+          </div>
         </div>
       </article>
 
@@ -1203,14 +1401,10 @@
             <span class="category-chip">Mercados Bursátiles</span>
           </div>
           <h3 class="card-title">Monitor de Mercados Financieros</h3>
-          <p class="card-description">
-            Plataforma de cotizaciones en tiempo real del mercado de capitales argentino: acciones locales, CEDEARs, bonos soberanos, cauciones e índices bursátiles.
-          </p>
           <div class="card-tags">
             <span class="card-tag">BYMA / Merval</span>
             <span class="card-tag">CEDEARs</span>
-            <span class="card-tag">Rava Bursátil</span>
-            <span class="card-tag">Cotizaciones en Vivo</span>
+            <span class="card-tag">En Vivo</span>
           </div>
         </div>
         <div class="card-footer">
@@ -1221,6 +1415,25 @@
           <button class="btn-details" title="Ver detalles" onclick="openModal('mercados')">
             <i class="fa-solid fa-circle-info"></i>
           </button>
+        </div>
+        <!-- Hover Overlay Descriptivo -->
+        <div class="card-hover-overlay">
+          <div class="overlay-top">
+            <span class="overlay-category"><i class="fa-solid fa-money-bill-trend-up"></i> Mercados Bursátiles</span>
+            <i class="fa-solid fa-circle-info overlay-info-icon"></i>
+          </div>
+          <p class="overlay-text">
+            Plataforma de cotizaciones en tiempo real del mercado de capitales argentino: acciones locales, CEDEARs, bonos soberanos, cauciones e índices bursátiles.
+          </p>
+          <div class="overlay-footer">
+            <a href="https://mercado.rava.com/" target="_blank" rel="noopener noreferrer" class="overlay-btn-launch">
+              <span>Abrir Mercado Rava</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <button class="overlay-btn-details" title="Ver ficha completa" onclick="openModal('mercados')">
+              <i class="fa-solid fa-list-check"></i>
+            </button>
+          </div>
         </div>
       </article>
 
@@ -1402,7 +1615,7 @@
       cards.forEach(card => {
         const category = card.getAttribute('data-category');
         const title = card.querySelector('.card-title').textContent.toLowerCase();
-        const description = card.querySelector('.card-description').textContent.toLowerCase();
+        const description = (card.querySelector('.overlay-text')?.textContent || '').toLowerCase();
         const tags = card.getAttribute('data-tags') || '';
 
         const matchesCategory = (currentFilter === 'all' || category === currentFilter);
