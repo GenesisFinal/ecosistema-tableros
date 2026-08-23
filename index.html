@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ecosistema de Tableros | La Segunda Seguros</title>
+  <meta name="description" content="Portal centralizado de herramientas analíticas, financieras, actuariales y del mercado asegurador de La Segunda Seguros." />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23e20039'/%3E%3Cpath d='M8 22V10h4.5c3.5 0 5.5 1.8 5.5 4.5 0 1.8-1 3.2-2.5 4l3.5 3.5h-3.2L13 19h-2.2v3H8zm2.8-5.8h1.7c1.8 0 2.8-.8 2.8-2.2s-1-2.2-2.8-2.2h-1.7v4.4z' fill='white'/%3E%3C/svg%3E" />
+
+  <!-- Google Fonts: Sora (Tipografía Oficial La Segunda) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- FontAwesome Icons for sharp UI elements -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    :root {
+      /* Paleta Primaria Institucional La Segunda */
+      --ls-red-primary: #e20039;       /* Rojo Seguro (Pantone 192 C/U) */
+      --ls-red-dark: #b91f38;          /* Pantone 193 C/U */
+      --ls-red-light: #f42c4b;         /* Pantone 191 C/U */
+      --ls-red-vibrant: #ff4c60;       /* Pantone 190 C/U */
+      
+      /* Colores Complementarios del Brandbook */
+      --ls-yellow: #f8cc59;
+      --ls-coral: #ff593e;
+      --ls-wine: #512420;
+      --ls-charcoal: #30302d;
+      --ls-mint: #3ac792;
+      --ls-blue: #4183ca;
+
+      /* Neutros & Fondos */
+      --bg-body: #f7f9fb;
+      --bg-card: #ffffff;
+      --bg-card-hover: #ffffff;
+      --text-main: #1f2429;
+      --text-muted: #5e6873;
+      --text-light: #8b95a5;
+      --border-color: #e5e9f0;
+      --border-focus: rgba(226, 0, 57, 0.4);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.07);
+      --shadow-lg: 0 16px 36px rgba(226, 0, 57, 0.12);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-pill: 9999px;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.55;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ==========================================================
+       HEADER & MOSAICO INSTITUCIONAL
+       ========================================================== */
+    .top-bar {
+      background-color: var(--ls-charcoal);
+      color: #e2e8f0;
+      font-size: 0.8125rem;
+      padding: 6px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      letter-spacing: 0.02em;
+    }
+    .top-bar .claim {
+      font-weight: 500;
+      color: #cbd5e1;
+    }
+    .top-bar .claim span {
+      color: var(--ls-red-vibrant);
+      font-weight: 700;
+    }
+    .top-bar .ssn-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #94a3b8;
+      font-size: 0.75rem;
+    }
+
+    header.main-header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Monograma / Logotipo La Segunda */
+    .brand-monogram {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-badge {
+      background: var(--ls-red-primary);
+      color: white;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.4rem;
+      box-shadow: 0 4px 12px rgba(226, 0, 57, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    .logo-badge::after {
+      content: '';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 24px;
+      height: 24px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--ls-charcoal);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    .brand-name span {
+      color: var(--ls-red-primary);
+    }
+    .brand-subtitle {
+      font-size: 0.775rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .header-tagline {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(226, 0, 57, 0.06);
+      color: var(--ls-red-dark);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.8125rem;
+      font-weight: 600;
+    }
+
+    /* Mosaico de Marca (Brand Mosaic Pattern) */
+    .mosaic-strip {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      height: 5px;
+      width: 100%;
+    }
+    .mosaic-strip div:nth-child(1) { background-color: var(--ls-red-dark); }
+    .mosaic-strip div:nth-child(2) { background-color: var(--ls-red-primary); }
+    .mosaic-strip div:nth-child(3) { background-color: var(--ls-red-light); }
+    .mosaic-strip div:nth-child(4) { background-color: var(--ls-red-vibrant); }
+    .mosaic-strip div:nth-child(5) { background-color: var(--ls-red-primary); }
+    .mosaic-strip div:nth-child(6) { background-color: var(--ls-red-dark); }
+    .mosaic-strip div:nth-child(7) { background-color: var(--ls-red-vibrant); }
+    .mosaic-strip div:nth-child(8) { background-color: var(--ls-red-light); }
+    .mosaic-strip div:nth-child(9) { background-color: var(--ls-red-primary); }
+    .mosaic-strip div:nth-child(10) { background-color: var(--ls-red-dark); }
+    .mosaic-strip div:nth-child(11) { background-color: var(--ls-red-light); }
+    .mosaic-strip div:nth-child(12) { background-color: var(--ls-red-vibrant); }
+
+    /* ==========================================================
+       HERO SECTION
+       ========================================================== */
+    .hero {
+      background: linear-gradient(135deg, #1c1f24 0%, #2b3038 50%, #17191d 100%);
+      color: #ffffff;
+      padding: 56px 24px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(226, 0, 57, 0.25) 0%, rgba(226, 0, 57, 0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* Mosaico decorativo de fondo */
+    .hero-mosaic-decor {
+      position: absolute;
+      right: 30px;
+      bottom: 20px;
+      display: grid;
+      grid-template-columns: repeat(4, 38px);
+      grid-template-rows: repeat(3, 38px);
+      gap: 6px;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+    .hero-mosaic-decor .m-box {
+      border-radius: 6px;
+    }
+
+    .hero-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: #fce7eb;
+      margin-bottom: 18px;
+    }
+    .hero-badge i {
+      color: var(--ls-red-vibrant);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+      max-width: 820px;
+    }
+    .hero h1 .highlight {
+      color: var(--ls-red-vibrant);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: #b0bac9;
+      max-width: 720px;
+      line-height: 1.6;
+      font-weight: 400;
+      margin-bottom: 28px;
+    }
+
+    .hero-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .metric-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .metric-value span.dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--ls-mint);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--ls-mint);
+      display: inline-block;
+    }
+    .metric-label {
+      font-size: 0.775rem;
+      color: #8fa0b5;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+    }
+
+    /* ==========================================================
+       MAIN CONTAINER & CONTROLS
+       ========================================================== */
+    .main-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 40px 24px 64px;
+      width: 100%;
+      flex: 1;
+    }
+
+    .controls-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .controls-panel {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1;
+      max-width: 460px;
+    }
+    .search-box i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 11px 16px 11px 40px;
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      background-color: #fdfdfd;
+      transition: var(--transition);
+    }
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--ls-red-primary);
+      box-shadow: 0 0 0 3px var(--border-focus);
+      background-color: #ffffff;
+    }
+    .search-box input::placeholder {
+      color: var(--text-light);
+    }
+
+    /* Category Filter Tabs */
+    .category-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-btn {
+      background: #f1f4f8;
+      border: 1px solid transparent;
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      font-family: inherit;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .filter-btn:hover {
+      background: #e7ebf2;
+      color: var(--text-main);
+    }
+    .filter-btn.active {
+      background: var(--ls-red-primary);
+      color: #ffffff;
+      border-color: var(--ls-red-primary);
+      box-shadow: 0 4px 12px rgba(226, 0, 57, 0.25);
+    }
+
+    /* Section Title */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 24px;
+    }
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--ls-charcoal);
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title::before {
+      content: '';
+      width: 4px;
+      height: 22px;
+      background: var(--ls-red-primary);
+      border-radius: 2px;
+      display: inline-block;
+    }
+    .results-count {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* ==========================================================
+       DASHBOARD CARDS GRID
+       ========================================================== */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 640px) {
+      .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1024px) {
+      .dashboard-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+      position: relative;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(226, 0, 57, 0.3);
+    }
+
+    /* Top Color Bar on Card based on Category */
+    .card-accent-bar {
+      height: 4px;
+      width: 100%;
+      background: var(--ls-red-primary);
+    }
+    .card[data-category="economia"] .card-accent-bar { background: var(--ls-red-primary); }
+    .card[data-category="finanzas"] .card-accent-bar { background: var(--ls-blue); }
+    .card[data-category="actuarial"] .card-accent-bar { background: var(--ls-mint); }
+    .card[data-category="demografico"] .card-accent-bar { background: var(--ls-yellow); }
+    .card[data-category="retiro"] .card-accent-bar { background: var(--ls-coral); }
+    .card[data-category="balances"] .card-accent-bar { background: var(--ls-wine); }
+    .card[data-category="mercados"] .card-accent-bar { background: #6366f1; }
+
+    .card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-header-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .card-icon-wrapper {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      color: #ffffff;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .card[data-category="economia"] .card-icon-wrapper { background: linear-gradient(135deg, var(--ls-red-primary), var(--ls-red-dark)); }
+    .card[data-category="finanzas"] .card-icon-wrapper { background: linear-gradient(135deg, var(--ls-blue), #2a5a8c); }
+    .card[data-category="actuarial"] .card-icon-wrapper { background: linear-gradient(135deg, #10b981, #047857); }
+    .card[data-category="demografico"] .card-icon-wrapper { background: linear-gradient(135deg, #f59e0b, #d97706); }
+    .card[data-category="retiro"] .card-icon-wrapper { background: linear-gradient(135deg, var(--ls-coral), #dc2626); }
+    .card[data-category="balances"] .card-icon-wrapper { background: linear-gradient(135deg, #7c3aed, #5b21b6); }
+    .card[data-category="mercados"] .card-icon-wrapper { background: linear-gradient(135deg, #0284c7, #0369a1); }
+
+    .category-chip {
+      font-size: 0.725rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: #f1f5f9;
+      color: var(--text-muted);
+    }
+
+    .card-title {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--ls-charcoal);
+      line-height: 1.3;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+      transition: var(--transition);
+    }
+    .card:hover .card-title {
+      color: var(--ls-red-primary);
+    }
+
+    .card-description {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .card-tag {
+      font-size: 0.725rem;
+      background: #f4f6f9;
+      color: #4b5563;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .card-footer {
+      border-top: 1px solid var(--border-color);
+      padding: 16px 24px;
+      background: #fafbfc;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .btn-launch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--ls-red-primary);
+      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 9px 16px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      box-shadow: 0 2px 6px rgba(226, 0, 57, 0.2);
+      flex: 1;
+      justify-content: center;
+    }
+    .btn-launch:hover {
+      background: var(--ls-red-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(226, 0, 57, 0.3);
+      color: #ffffff;
+    }
+
+    .btn-details {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-details:hover {
+      border-color: var(--ls-red-primary);
+      color: var(--ls-red-primary);
+      background: #ffffff;
+    }
+
+    /* Empty State */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      border: 1px dashed var(--border-color);
+      display: none;
+    }
+    .empty-state i {
+      font-size: 3rem;
+      color: var(--text-light);
+      margin-bottom: 16px;
+    }
+    .empty-state h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+    .empty-state p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* ==========================================================
+       MODAL DE DETALLES
+       ========================================================== */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      padding: 20px;
+    }
+    .modal-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-window {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 600px;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      transform: scale(0.95);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .modal-backdrop.active .modal-window {
+      transform: scale(1);
+    }
+    .modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fafbfc;
+    }
+    .modal-header h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--ls-charcoal);
+    }
+    .btn-close-modal {
+      background: none;
+      border: none;
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+    .btn-close-modal:hover {
+      background: #e2e8f0;
+      color: var(--text-main);
+    }
+    .modal-body {
+      padding: 24px;
+    }
+    .modal-body p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .modal-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .modal-features li {
+      font-size: 0.875rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-main);
+    }
+    .modal-features li i {
+      color: var(--ls-mint);
+      font-size: 1rem;
+    }
+    .modal-footer {
+      padding: 16px 24px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      background: #f8fafc;
+    }
+
+    /* ==========================================================
+       FOOTER INSTITUCIONAL
+       ========================================================== */
+    footer.main-footer {
+      background-color: var(--ls-charcoal);
+      color: #94a3b8;
+      font-size: 0.85rem;
+      border-top: 4px solid var(--ls-red-primary);
+      margin-top: auto;
+    }
+
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 48px 24px 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr;
+      }
+    }
+
+    .footer-brand h4 {
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-brand h4 span {
+      color: var(--ls-red-vibrant);
+    }
+    .footer-brand p {
+      line-height: 1.6;
+      max-width: 440px;
+      font-size: 0.85rem;
+      color: #cbd5e1;
+    }
+
+    .footer-col h5 {
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .footer-col ul a {
+      color: #94a3b8;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer-col ul a:hover {
+      color: var(--ls-red-vibrant);
+      transform: translateX(3px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+      text-align: center;
+      font-size: 0.775rem;
+      color: #64748b;
+    }
+    @media (min-width: 768px) {
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar Institucional -->
+  <div class="top-bar">
+    <div class="claim">
+      Primero lo que importa. <span>Lo primero sos vos.</span>
+    </div>
+    <div class="ssn-badge">
+      <i class="fa-solid fa-shield-halved"></i>
+      <span>Supervisión SSN | N° Inscripción 0317</span>
+    </div>
+  </div>
+
+  <!-- Header con Brandbook y Mosaico -->
+  <header class="main-header">
+    <div class="header-container">
+      <div class="brand-logo-wrap">
+        <div class="brand-monogram">
+          <div class="logo-badge" title="La Segunda Seguros">
+            LS
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">LA SEGUNDA <span>SEGUROS</span></span>
+            <span class="brand-subtitle">Inteligencia Analítica & Tableros</span>
+          </div>
+        </div>
+      </div>
+      <div class="header-tagline">
+        <i class="fa-solid fa-network-wired"></i>
+        <span>Ecosistema de Tableros</span>
+      </div>
+    </div>
+    <div class="mosaic-strip">
+      <div></div><div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-mosaic-decor">
+      <div class="m-box" style="background: var(--ls-red-dark)"></div>
+      <div class="m-box" style="background: var(--ls-red-primary)"></div>
+      <div class="m-box" style="background: var(--ls-red-light)"></div>
+      <div class="m-box" style="background: var(--ls-red-vibrant)"></div>
+      <div class="m-box" style="background: var(--ls-red-light)"></div>
+      <div class="m-box" style="background: var(--ls-red-vibrant)"></div>
+      <div class="m-box" style="background: var(--ls-red-dark)"></div>
+      <div class="m-box" style="background: var(--ls-red-primary)"></div>
+      <div class="m-box" style="background: var(--ls-red-primary)"></div>
+      <div class="m-box" style="background: var(--ls-red-dark)"></div>
+      <div class="m-box" style="background: var(--ls-red-vibrant)"></div>
+      <div class="m-box" style="background: var(--ls-red-light)"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fa-solid fa-layer-group"></i>
+        <span>Centro de Monitoreo Integral</span>
+      </div>
+      <h1>
+        Ecosistema de <span class="highlight">Tableros Analíticos</span> y Financieros
+      </h1>
+      <p>
+        Acceso unificado a los monitores macroeconómicos, proyecciones actuariales, evolución de balances de aseguradoras, activos financieros y demografía para la toma de decisiones estratégicas.
+      </p>
+
+      <div class="hero-metrics">
+        <div class="metric-item">
+          <div class="metric-value">
+            <span class="dot"></span> 7
+          </div>
+          <div class="metric-label">Herramientas en Línea</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-value">100%</div>
+          <div class="metric-label">Disponibilidad GitHub Pages</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-value">SSN & BCRA</div>
+          <div class="metric-label">Fuentes Oficiales Validadas</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <main class="main-container">
+    
+    <!-- Controls: Search & Category Filter -->
+    <div class="controls-panel">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Buscar por nombre, indicador o palabra clave..." 
+          autocomplete="off"
+        />
+      </div>
+
+      <div class="category-filters" id="category-filters">
+        <button class="filter-btn active" data-filter="all">
+          <i class="fa-solid fa-border-all"></i> Todos
+        </button>
+        <button class="filter-btn" data-filter="economia">
+          <i class="fa-solid fa-chart-line"></i> Economía & Seguros
+        </button>
+        <button class="filter-btn" data-filter="finanzas">
+          <i class="fa-solid fa-coins"></i> Finanzas
+        </button>
+        <button class="filter-btn" data-filter="actuarial">
+          <i class="fa-solid fa-calculator"></i> Actuarial & Demo
+        </button>
+        <button class="filter-btn" data-filter="balances">
+          <i class="fa-solid fa-building-columns"></i> Balances & SSN
+        </button>
+      </div>
+    </div>
+
+    <!-- Section Title & Results Count -->
+    <div class="section-header">
+      <h2 class="section-title">Tableros y Monitores Disponibles</h2>
+      <span class="results-count" id="results-count">Mostrando 7 de 7 tableros</span>
+    </div>
+
+    <!-- Grid of Dashboards -->
+    <div class="dashboard-grid" id="dashboard-grid">
+
+      <!-- 1. Monitor Económico y del Mercado Asegurador -->
+      <article class="card" data-category="economia" data-tags="macroeconomia inflacion seguros primas ssn produccion siniestros tasas">
+        <div class="card-accent-bar"></div>
+        <div class="card-body">
+          <div class="card-header-top">
+            <div class="card-icon-wrapper">
+              <i class="fa-solid fa-chart-pie"></i>
+            </div>
+            <span class="category-chip">Economía & Seguros</span>
+          </div>
+          <h3 class="card-title">Monitor Económico y del Mercado Asegurador</h3>
+          <p class="card-description">
+            Monitoreo macroeconómico, evolución de la inflación, tasas de interés, producción del mercado asegurador y análisis siniestral con datos consolidados.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">Macroeconomía</span>
+            <span class="card-tag">Mercado Asegurador</span>
+            <span class="card-tag">Producción SSN</span>
+            <span class="card-tag">Inflación</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://genesisfinal.github.io/monitor-economico-financiero/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+            <span>Abrir Tablero</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <button class="btn-details" title="Ver detalles" onclick="openModal('economia')">
+            <i class="fa-solid fa-circle-info"></i>
+          </button>
+        </div>
+      </article>
+
+      <!-- 2. Monitor de Activos Financieros -->
+      <article class="card" data-category="finanzas" data-tags="activos bonos acciones rendimientos carteras merval tipo de cambio dolar inversiones">
+        <div class="card-accent-bar"></div>
+        <div class="card-body">
+          <div class="card-header-top">
+            <div class="card-icon-wrapper">
+              <i class="fa-solid fa-arrow-trend-up"></i>
+            </div>
+            <span class="category-chip">Finanzas & Inversión</span>
+          </div>
+          <h3 class="card-title">Monitor de Activos Financieros</h3>
+          <p class="card-description">
+            Evolución y cotizaciones de activos de renta fija, renta variable, curvas de rendimientos, tipos de cambio y seguimiento de carteras de inversión.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">Renta Fija</span>
+            <span class="card-tag">Renta Variable</span>
+            <span class="card-tag">Dólar / FX</span>
+            <span class="card-tag">Curvas Soberanas</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://genesisfinal.github.io/monitor-financiero/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+            <span>Abrir Tablero</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <button class="btn-details" title="Ver detalles" onclick="openModal('finanzas')">
+            <i class="fa-solid fa-circle-info"></i>
+          </button>
+        </div>
+      </article>
+
+      <!-- 3. Calculadora Actuarial -->
+      <article class="card" data-category="actuarial" data-tags="actuarial calculadora tablas de mortalidad reservas primas biometria matematica financiero">
+        <div class="card-accent-bar"></div>
+        <div class="card-body">
+          <div class="card-header-top">
+            <div class="card-icon-wrapper">
+              <i class="fa-solid fa-calculator"></i>
+            </div>
+            <span class="category-chip">Actuarial & Matemático</span>
+          </div>
+          <h3 class="card-title">Calculadora Actuarial</h3>
+          <p class="card-description">
+            Herramienta biométrica y actuarial para cálculo de primas puras, reservas matemáticas, tablas de mortalidad dinámicas y factores conmutativos.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">Tablas Mortalidad</span>
+            <span class="card-tag">Reservas Matemáticas</span>
+            <span class="card-tag">Primas Puras</span>
+            <span class="card-tag">Conmutaciones</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://genesisfinal.github.io/calculadora-actuarial/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+            <span>Abrir Tablero</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <button class="btn-details" title="Ver detalles" onclick="openModal('actuarial')">
+            <i class="fa-solid fa-circle-info"></i>
+          </button>
+        </div>
+      </article>
+
+      <!-- 4. Monitor Demográfico y Estadístico -->
+      <article class="card" data-category="actuarial" data-tags="demografia poblacion indec piramide poblacional esperanza de vida estadistica censo territorio">
+        <div class="card-accent-bar"></div>
+        <div class="card-body">
+          <div class="card-header-top">
+            <div class="card-icon-wrapper">
+              <i class="fa-solid fa-users-viewfinder"></i>
+            </div>
+            <span class="category-chip">Demografía & Población</span>
+          </div>
+          <h3 class="card-title">Monitor Demográfico y Estadístico</h3>
+          <p class="card-description">
+            Estructuras etarias, pirámides poblacionales, esperanza de vida al nacer, proyecciones demográficas territoriales e indicadores sociodemográficos.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">Pirámides Etarias</span>
+            <span class="card-tag">Esperanza de Vida</span>
+            <span class="card-tag">Censos & Proyecciones</span>
+            <span class="card-tag">INDEC</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://genesisfinal.github.io/monitor-demografico-estadistico/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+            <span>Abrir Tablero</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <button class="btn-details" title="Ver detalles" onclick="openModal('demografico')">
+            <i class="fa-solid fa-circle-info"></i>
+          </button>
+        </div>
+      </article>
+
+      <!-- 5. Tablero de Seguros de Retiro -->
+      <article class="card" data-category="economia" data-tags="retiro fondos rentabilidad rendimiento cuentas individuales coberturas pension inversion">
+        <div class="card-accent-bar"></div>
+        <div class="card-body">
+          <div class="card-header-top">
+            <div class="card-icon-wrapper">
+              <i class="fa-solid fa-piggy-bank"></i>
+            </div>
+            <span class="category-chip">Seguros de Retiro</span>
+          </div>
+          <h3 class="card-title">Tablero de Seguros de Retiro</h3>
+          <p class="card-description">
+            Seguimiento de fondos de retiro, rentabilidades nominales y reales garantizadas, evolución de cuentas individuales y comparativas de coberturas.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">Planes de Retiro</span>
+            <span class="card-tag">Rentabilidad Garantizada</span>
+            <span class="card-tag">Fondos Administrados</span>
+            <span class="card-tag">Cuentas Individuales</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://genesisfinal.github.io/tablero-retiro/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+            <span>Abrir Tablero</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <button class="btn-details" title="Ver detalles" onclick="openModal('retiro')">
+            <i class="fa-solid fa-circle-info"></i>
+          </button>
+        </div>
+      </article>
+
+      <!-- 6. Tablero de Balances de Aseguradoras (SINENSUP) -->
+      <article class="card" data-category="balances" data-tags="balances aseguradoras sinensup ssn solvencia estados contables ranking patrimonio primas">
+        <div class="card-accent-bar"></div>
+        <div class="card-body">
+          <div class="card-header-top">
+            <div class="card-icon-wrapper">
+              <i class="fa-solid fa-scale-balanced"></i>
+            </div>
+            <span class="category-chip">Balances & Solvencia SSN</span>
+          </div>
+          <h3 class="card-title">Tablero de Balances de Aseguradoras</h3>
+          <p class="card-description">
+            Estados contables del sistema SINENSUP / SSN, balances trimestrales de aseguradoras, rankings de producción, ratios de solvencia y liquidez.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">SINENSUP SSN</span>
+            <span class="card-tag">Estados Contables</span>
+            <span class="card-tag">Ratios de Solvencia</span>
+            <span class="card-tag">Ranking Aseguradoras</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://genesisfinal.github.io/tablero-sinensup/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+            <span>Abrir Tablero</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <button class="btn-details" title="Ver detalles" onclick="openModal('balances')">
+            <i class="fa-solid fa-circle-info"></i>
+          </button>
+        </div>
+      </article>
+
+      <!-- 7. Monitor de Mercados Financieros (Rava) -->
+      <article class="card" data-category="finanzas" data-tags="mercado rava byma merval acciones bonos cedears cauciones cotizaciones en vivo">
+        <div class="card-accent-bar"></div>
+        <div class="card-body">
+          <div class="card-header-top">
+            <div class="card-icon-wrapper">
+              <i class="fa-solid fa-money-bill-trend-up"></i>
+            </div>
+            <span class="category-chip">Mercados Bursátiles</span>
+          </div>
+          <h3 class="card-title">Monitor de Mercados Financieros</h3>
+          <p class="card-description">
+            Plataforma de cotizaciones en tiempo real del mercado de capitales argentino: acciones locales, CEDEARs, bonos soberanos, cauciones e índices bursátiles.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">BYMA / Merval</span>
+            <span class="card-tag">CEDEARs</span>
+            <span class="card-tag">Rava Bursátil</span>
+            <span class="card-tag">Cotizaciones en Vivo</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://mercado.rava.com/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+            <span>Abrir Mercado Rava</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <button class="btn-details" title="Ver detalles" onclick="openModal('mercados')">
+            <i class="fa-solid fa-circle-info"></i>
+          </button>
+        </div>
+      </article>
+
+      <!-- Empty State for Search -->
+      <div class="empty-state" id="empty-state">
+        <i class="fa-solid fa-magnifying-glass-arrow-right"></i>
+        <h3>No se encontraron tableros</h3>
+        <p>Intenta con otros términos de búsqueda o cambia la categoría seleccionada.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Modal de Información Detallada -->
+  <div class="modal-backdrop" id="modal-backdrop" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3 id="modal-title">Detalle del Tablero</h3>
+        <button class="btn-close-modal" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p id="modal-description"></p>
+        <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--ls-charcoal); margin-bottom: 12px;">Características y Alcance:</h4>
+        <ul class="modal-features" id="modal-features">
+          <!-- Items generados dinámicamente -->
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="filter-btn" style="background:#e2e8f0; color:var(--text-main);" onclick="closeModal()">Cerrar</button>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn-launch" id="modal-link" style="flex:initial;">
+          <span>Ir al Tablero</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Institucional -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>LA SEGUNDA <span>SEGUROS</span></h4>
+          <p>
+            Ecosistema integral de herramientas analíticas para la gestión técnica, financiera, actuarial y estratégica del negocio asegurador.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h5>Monitores Principales</h5>
+          <ul>
+            <li><a href="https://genesisfinal.github.io/monitor-economico-financiero/" target="_blank"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem;"></i> Monitor Económico</a></li>
+            <li><a href="https://genesisfinal.github.io/monitor-financiero/" target="_blank"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem;"></i> Activos Financieros</a></li>
+            <li><a href="https://genesisfinal.github.io/tablero-sinensup/" target="_blank"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem;"></i> Balances SSN</a></li>
+            <li><a href="https://genesisfinal.github.io/calculadora-actuarial/" target="_blank"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem;"></i> Calculadora Actuarial</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Enlaces de Interés</h5>
+          <ul>
+            <li><a href="https://www.argentina.gob.ar/ssn" target="_blank"><i class="fa-solid fa-shield-halved"></i> Superintendencia SSN</a></li>
+            <li><a href="https://www.bcra.gob.ar/" target="_blank"><i class="fa-solid fa-building-columns"></i> Banco Central BCRA</a></li>
+            <li><a href="https://www.indec.gob.ar/" target="_blank"><i class="fa-solid fa-chart-simple"></i> INDEC República Argentina</a></li>
+            <li><a href="https://mercado.rava.com/" target="_blank"><i class="fa-solid fa-money-bill-trend-up"></i> Mercado Bursátil</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; <span id="current-year"></span> La Segunda Seguros. Todos los derechos reservados.
+        </div>
+        <div>
+          Supervisado por la Superintendencia de Seguros de la Nación (SSN) | 0800-666-8400
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript Interactivo -->
+  <script>
+    // Establecer año actual en el footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Base de datos de detalles de cada tablero
+    const dashboardDetails = {
+      economia: {
+        title: 'Monitor Económico y del Mercado Asegurador',
+        description: 'Plataforma de seguimiento integral de indicadores macroeconómicos de Argentina y métricas clave de la industria aseguradora nacional.',
+        url: 'https://genesisfinal.github.io/monitor-economico-financiero/',
+        features: [
+          'Evolución del IPC mensual, interanual y tasas de política monetaria.',
+          'Producción de primas por ramo (Automotores, ART, Vida, Retiro, Patrimoniales).',
+          'Siniestralidad devengada y ratios técnicos consolidados.',
+          'Fuentes oficiales: SSN, INDEC, Banco Central de la República Argentina (BCRA).'
+        ]
+      },
+      finanzas: {
+        title: 'Monitor de Activos Financieros',
+        description: 'Herramienta de análisis cuantitativo de curvas soberanas, tasas en pesos, bonos corporativos, CEDEARs y tipos de cambio.',
+        url: 'https://genesisfinal.github.io/monitor-financiero/',
+        features: [
+          'Cotizaciones y tasas internas de retorno (TIR) en tiempo real.',
+          'Curvas de bonos en dólares (Bonares, Globales) y bonos en pesos ajustados por CER/TAM.',
+          'Seguimiento del tipo de cambio oficial, MEP, CCL y brechas cambiarias.',
+          'Herramientas para evaluación de carteras y calce de pasivos.'
+        ]
+      },
+      actuarial: {
+        title: 'Calculadora Actuarial',
+        description: 'Suite de cálculo actuarial para estimación de primas puras, tablas biométricas y proyecciones de reservas de seguros de personas.',
+        url: 'https://genesisfinal.github.io/calculadora-actuarial/',
+        features: [
+          'Tablas de mortalidad oficiales (CSO, GAM, GKM/F, SSN).',
+          'Cálculo de funciones biométricas y conmutaciones (lx, dx, qx, Nx, Dx, Mx).',
+          'Determinación de primas niveladas y anualidades contingentes.',
+          'Evolución proyectada de reservas matemáticas.'
+        ]
+      },
+      demografico: {
+        title: 'Monitor Demográfico y Estadístico',
+        description: 'Análisis detallado de la pirámide poblacional, envejecimiento demográfico y factores territoriales de Argentina.',
+        url: 'https://genesisfinal.github.io/monitor-demografico-estadistico/',
+        features: [
+          'Pirámides poblacionales dinámicas por provincia y región.',
+          'Esperanza de vida al nacer y a edades jubilatorias.',
+          'Ratios de dependencia demográfica y proyecciones a largo plazo.',
+          'Información basada en los censos y estimaciones del INDEC.'
+        ]
+      },
+      retiro: {
+        title: 'Tablero de Seguros de Retiro',
+        description: 'Monitoreo de rendimientos de los fondos de seguros de retiro individuales y colectivos en el mercado asegurador argentino.',
+        url: 'https://genesisfinal.github.io/tablero-retiro/',
+        features: [
+          'Rentabilidad nominal vs. rentabilidad garantizada por póliza.',
+          'Comparativas con inflación y benchmarks de inversión.',
+          'Evolución del saldo de cuentas individuales y capitalización.',
+          'Proyección de renta vitalicia y retiros programados.'
+        ]
+      },
+      balances: {
+        title: 'Tablero de Balances de Aseguradoras (SINENSUP)',
+        description: 'Visualización y benchmark de estados contables trimestrales de todas las compañías de seguros supervisadas por la SSN.',
+        url: 'https://genesisfinal.github.io/tablero-sinensup/',
+        features: [
+          'Ranking de aseguradoras por primaje, activos, pasivos y patrimonio neto.',
+          'Indicadores de solvencia, liquidez y cobertura de compromisos técnicos.',
+          'Detalle de inversiones computables según resoluciones SSN.',
+          'Comparativa histórica interanual de resultados técnicos y financieros.'
+        ]
+      },
+      mercados: {
+        title: 'Monitor de Mercados Financieros (Rava)',
+        description: 'Panel bursátil en vivo con cotizaciones de acciones del panel líder, panel general, CEDEARs, bonos y opciones.',
+        url: 'https://mercado.rava.com/',
+        features: [
+          'Precios en tiempo real del mercado BYMA.',
+          'Volúmenes operados, variaciones intradiarias y gráficos de velas.',
+          'Cotizaciones de ADRs en Wall Street y activos globales.',
+          'Cauciones bursátiles y tasas de interés de corto plazo.'
+        ]
+      }
+    };
+
+    // Filtros y Búsqueda en Vivo
+    const searchInput = document.getElementById('search-input');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.card');
+    const resultsCount = document.getElementById('results-count');
+    const emptyState = document.getElementById('empty-state');
+
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    function applyFilters() {
+      let visibleCount = 0;
+      const normalizedQuery = searchQuery.trim().toLowerCase();
+
+      cards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        const title = card.querySelector('.card-title').textContent.toLowerCase();
+        const description = card.querySelector('.card-description').textContent.toLowerCase();
+        const tags = card.getAttribute('data-tags') || '';
+
+        const matchesCategory = (currentFilter === 'all' || category === currentFilter);
+        const matchesSearch = normalizedQuery === '' || 
+                              title.includes(normalizedQuery) || 
+                              description.includes(normalizedQuery) || 
+                              tags.includes(normalizedQuery);
+
+        if (matchesCategory && matchesSearch) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      resultsCount.textContent = `Mostrando ${visibleCount} de ${cards.length} tableros`;
+
+      if (visibleCount === 0) {
+        emptyState.style.display = 'block';
+      } else {
+        emptyState.style.display = 'none';
+      }
+    }
+
+    // Eventos de Búsqueda
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      applyFilters();
+    });
+
+    // Eventos de Filtro por Categoría
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.getAttribute('data-filter');
+        applyFilters();
+      });
+    });
+
+    // Funciones del Modal
+    const modalBackdrop = document.getElementById('modal-backdrop');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDescription = document.getElementById('modal-description');
+    const modalFeatures = document.getElementById('modal-features');
+    const modalLink = document.getElementById('modal-link');
+
+    function openModal(key) {
+      const data = dashboardDetails[key];
+      if (!data) return;
+
+      modalTitle.textContent = data.title;
+      modalDescription.textContent = data.description;
+      modalLink.href = data.url;
+
+      modalFeatures.innerHTML = '';
+      data.features.forEach(feat => {
+        const li = document.createElement('li');
+        li.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>${feat}</span>`;
+        modalFeatures.appendChild(li);
+      });
+
+      modalBackdrop.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modalBackdrop.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function closeModalOnBackdrop(e) {
+      if (e.target === modalBackdrop) {
+        closeModal();
+      }
+    }
+
+    // Cerrar modal con tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalBackdrop.classList.contains('active')) {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>
