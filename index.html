@@ -83,24 +83,24 @@
       font-size: 0.8125rem;
       padding: 6px 24px;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       letter-spacing: 0.02em;
     }
-    .top-bar .claim {
-      font-weight: 500;
+    .top-bar-content {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       color: #cbd5e1;
+      font-weight: 500;
     }
-    .top-bar .claim span {
+    .top-bar-content strong {
       color: var(--ls-red-vibrant);
       font-weight: 700;
     }
-    .top-bar .ssn-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #94a3b8;
-      font-size: 0.75rem;
+    .top-bar-content i {
+      color: var(--ls-yellow);
+      font-size: 0.8rem;
     }
 
     header.main-header {
@@ -876,14 +876,11 @@
 </head>
 <body>
 
-  <!-- Top Bar Institucional -->
+  <!-- Top Bar Confidencial / Beta -->
   <div class="top-bar">
-    <div class="claim">
-      Primero lo que importa. <span>Lo primero sos vos.</span>
-    </div>
-    <div class="ssn-badge">
-      <i class="fa-solid fa-shield-halved"></i>
-      <span>Supervisión SSN | N° Inscripción 0317</span>
+    <div class="top-bar-content">
+      <i class="fa-solid fa-lock"></i>
+      <span><strong>Tablero (Beta)</strong> &mdash; Solo para uso interno. Confidencial.</span>
     </div>
   </div>
 
