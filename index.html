@@ -1118,7 +1118,101 @@
     <!-- Grid of Dashboards -->
     <div class="dashboard-grid" id="dashboard-grid">
 
-      <!-- 1. Monitor Económico y del Mercado Asegurador -->
+      <!-- 1. Tablero de Retiro -->
+      <article class="card" data-category="economia" data-tags="retiro fondos rentabilidad rendimiento cuentas individuales coberturas pension inversion">
+        <div class="card-accent-bar"></div>
+        <div class="card-body">
+          <div class="card-header-top">
+            <div class="card-icon-wrapper">
+              <i class="fa-solid fa-piggy-bank"></i>
+            </div>
+            <span class="category-chip">Seguros de Retiro</span>
+          </div>
+          <h3 class="card-title">Tablero de Retiro</h3>
+          <div class="card-tags">
+            <span class="card-tag">Planes de Retiro</span>
+            <span class="card-tag">Garantizada</span>
+            <span class="card-tag">Cuentas</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://genesisfinal.github.io/tablero-retiro/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+            <span>Abrir Tablero</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <button class="btn-details" title="Ver detalles" onclick="openModal('retiro')">
+            <i class="fa-solid fa-circle-info"></i>
+          </button>
+        </div>
+        <!-- Hover Overlay Descriptivo -->
+        <div class="card-hover-overlay">
+          <div class="overlay-top">
+            <span class="overlay-category"><i class="fa-solid fa-piggy-bank"></i> Seguros de Retiro</span>
+            <i class="fa-solid fa-circle-info overlay-info-icon"></i>
+          </div>
+          <p class="overlay-text">
+            Seguimiento de fondos de retiro, rentabilidades nominales y reales garantizadas, evolución de cuentas individuales y comparativas de coberturas.
+          </p>
+          <div class="overlay-footer">
+            <a href="https://genesisfinal.github.io/tablero-retiro/" target="_blank" rel="noopener noreferrer" class="overlay-btn-launch">
+              <span>Abrir Tablero</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <button class="overlay-btn-details" title="Ver ficha completa" onclick="openModal('retiro')">
+              <i class="fa-solid fa-list-check"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2. Balances de Aseguradoras -->
+      <article class="card" data-category="balances" data-tags="balances aseguradoras sinensup ssn solvencia estados contables ranking patrimonio primas">
+        <div class="card-accent-bar"></div>
+        <div class="card-body">
+          <div class="card-header-top">
+            <div class="card-icon-wrapper">
+              <i class="fa-solid fa-scale-balanced"></i>
+            </div>
+            <span class="category-chip">Balances & Solvencia SSN</span>
+          </div>
+          <h3 class="card-title">Balances de Aseguradoras</h3>
+          <div class="card-tags">
+            <span class="card-tag">SINENSUP SSN</span>
+            <span class="card-tag">Solvencia</span>
+            <span class="card-tag">Ranking</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://genesisfinal.github.io/tablero-sinensup/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+            <span>Abrir Tablero</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <button class="btn-details" title="Ver detalles" onclick="openModal('balances')">
+            <i class="fa-solid fa-circle-info"></i>
+          </button>
+        </div>
+        <!-- Hover Overlay Descriptivo -->
+        <div class="card-hover-overlay">
+          <div class="overlay-top">
+            <span class="overlay-category"><i class="fa-solid fa-scale-balanced"></i> Balances & Solvencia</span>
+            <i class="fa-solid fa-circle-info overlay-info-icon"></i>
+          </div>
+          <p class="overlay-text">
+            Estados contables del sistema SINENSUP / SSN, balances trimestrales de aseguradoras, rankings de producción, ratios de solvencia y liquidez.
+          </p>
+          <div class="overlay-footer">
+            <a href="https://genesisfinal.github.io/tablero-sinensup/" target="_blank" rel="noopener noreferrer" class="overlay-btn-launch">
+              <span>Abrir Tablero</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <button class="overlay-btn-details" title="Ver ficha completa" onclick="openModal('balances')">
+              <i class="fa-solid fa-list-check"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. Económico y Mercado Asegurador -->
       <article class="card" data-category="economia" data-tags="macroeconomia inflacion seguros primas ssn produccion siniestros tasas">
         <div class="card-accent-bar"></div>
         <div class="card-body">
@@ -1128,7 +1222,7 @@
             </div>
             <span class="category-chip">Economía & Seguros</span>
           </div>
-          <h3 class="card-title">Monitor Económico y del Mercado Asegurador</h3>
+          <h3 class="card-title">Económico y Mercado Asegurador</h3>
           <div class="card-tags">
             <span class="card-tag">Macroeconomía</span>
             <span class="card-tag">Mercado Asegurador</span>
@@ -1165,54 +1259,54 @@
         </div>
       </article>
 
-      <!-- 2. Monitor de Activos Financieros -->
-      <article class="card" data-category="finanzas" data-tags="activos bonos acciones rendimientos carteras merval tipo de cambio dolar inversiones">
+      <!-- 4. Demográfico y Estadístico -->
+      <article class="card" data-category="actuarial" data-tags="demografia poblacion indec piramide poblacional esperanza de vida estadistica censo territorio">
         <div class="card-accent-bar"></div>
         <div class="card-body">
           <div class="card-header-top">
             <div class="card-icon-wrapper">
-              <i class="fa-solid fa-arrow-trend-up"></i>
+              <i class="fa-solid fa-users-viewfinder"></i>
             </div>
-            <span class="category-chip">Finanzas & Inversión</span>
+            <span class="category-chip">Demografía & Población</span>
           </div>
-          <h3 class="card-title">Monitor de Activos Financieros</h3>
+          <h3 class="card-title">Demográfico y Estadístico</h3>
           <div class="card-tags">
-            <span class="card-tag">Renta Fija</span>
-            <span class="card-tag">Renta Variable</span>
-            <span class="card-tag">Curvas Soberanas</span>
+            <span class="card-tag">Pirámides Etarias</span>
+            <span class="card-tag">Esperanza Vida</span>
+            <span class="card-tag">INDEC</span>
           </div>
         </div>
         <div class="card-footer">
-          <a href="https://genesisfinal.github.io/monitor-financiero/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+          <a href="https://genesisfinal.github.io/monitor-demografico-estadistico/" target="_blank" rel="noopener noreferrer" class="btn-launch">
             <span>Abrir Tablero</span>
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
-          <button class="btn-details" title="Ver detalles" onclick="openModal('finanzas')">
+          <button class="btn-details" title="Ver detalles" onclick="openModal('demografico')">
             <i class="fa-solid fa-circle-info"></i>
           </button>
         </div>
         <!-- Hover Overlay Descriptivo -->
         <div class="card-hover-overlay">
           <div class="overlay-top">
-            <span class="overlay-category"><i class="fa-solid fa-arrow-trend-up"></i> Finanzas & Inversión</span>
+            <span class="overlay-category"><i class="fa-solid fa-users-viewfinder"></i> Demografía & Población</span>
             <i class="fa-solid fa-circle-info overlay-info-icon"></i>
           </div>
           <p class="overlay-text">
-            Evolución y cotizaciones de activos de renta fija, renta variable, curvas de rendimientos, tipos de cambio y seguimiento de carteras de inversión.
+            Estructuras etarias, pirámides poblacionales, esperanza de vida al nacer, proyecciones demográficas territoriales e indicadores sociodemográficos.
           </p>
           <div class="overlay-footer">
-            <a href="https://genesisfinal.github.io/monitor-financiero/" target="_blank" rel="noopener noreferrer" class="overlay-btn-launch">
+            <a href="https://genesisfinal.github.io/monitor-demografico-estadistico/" target="_blank" rel="noopener noreferrer" class="overlay-btn-launch">
               <span>Abrir Tablero</span>
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </a>
-            <button class="overlay-btn-details" title="Ver ficha completa" onclick="openModal('finanzas')">
+            <button class="overlay-btn-details" title="Ver ficha completa" onclick="openModal('demografico')">
               <i class="fa-solid fa-list-check"></i>
             </button>
           </div>
         </div>
       </article>
 
-      <!-- 3. Calculadora Actuarial -->
+      <!-- 5. Calculadora Actuarial -->
       <article class="card" data-category="actuarial" data-tags="actuarial calculadora tablas de mortalidad reservas primas biometria matematica financiero">
         <div class="card-accent-bar"></div>
         <div class="card-body">
@@ -1259,148 +1353,54 @@
         </div>
       </article>
 
-      <!-- 4. Monitor Demográfico y Estadístico -->
-      <article class="card" data-category="actuarial" data-tags="demografia poblacion indec piramide poblacional esperanza de vida estadistica censo territorio">
+      <!-- 6. Monitor Activos Financieros -->
+      <article class="card" data-category="finanzas" data-tags="activos bonos acciones rendimientos carteras merval tipo de cambio dolar inversiones">
         <div class="card-accent-bar"></div>
         <div class="card-body">
           <div class="card-header-top">
             <div class="card-icon-wrapper">
-              <i class="fa-solid fa-users-viewfinder"></i>
+              <i class="fa-solid fa-arrow-trend-up"></i>
             </div>
-            <span class="category-chip">Demografía & Población</span>
+            <span class="category-chip">Finanzas & Inversión</span>
           </div>
-          <h3 class="card-title">Monitor Demográfico y Estadístico</h3>
+          <h3 class="card-title">Monitor Activos Financieros</h3>
           <div class="card-tags">
-            <span class="card-tag">Pirámides Etarias</span>
-            <span class="card-tag">Esperanza Vida</span>
-            <span class="card-tag">INDEC</span>
+            <span class="card-tag">Renta Fija</span>
+            <span class="card-tag">Renta Variable</span>
+            <span class="card-tag">Curvas Soberanas</span>
           </div>
         </div>
         <div class="card-footer">
-          <a href="https://genesisfinal.github.io/monitor-demografico-estadistico/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+          <a href="https://genesisfinal.github.io/monitor-financiero/" target="_blank" rel="noopener noreferrer" class="btn-launch">
             <span>Abrir Tablero</span>
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
-          <button class="btn-details" title="Ver detalles" onclick="openModal('demografico')">
+          <button class="btn-details" title="Ver detalles" onclick="openModal('finanzas')">
             <i class="fa-solid fa-circle-info"></i>
           </button>
         </div>
         <!-- Hover Overlay Descriptivo -->
         <div class="card-hover-overlay">
           <div class="overlay-top">
-            <span class="overlay-category"><i class="fa-solid fa-users-viewfinder"></i> Demografía & Población</span>
+            <span class="overlay-category"><i class="fa-solid fa-arrow-trend-up"></i> Finanzas & Inversión</span>
             <i class="fa-solid fa-circle-info overlay-info-icon"></i>
           </div>
           <p class="overlay-text">
-            Estructuras etarias, pirámides poblacionales, esperanza de vida al nacer, proyecciones demográficas territoriales e indicadores sociodemográficos.
+            Evolución y cotizaciones de activos de renta fija, renta variable, curvas de rendimientos, tipos de cambio y seguimiento de carteras de inversión.
           </p>
           <div class="overlay-footer">
-            <a href="https://genesisfinal.github.io/monitor-demografico-estadistico/" target="_blank" rel="noopener noreferrer" class="overlay-btn-launch">
+            <a href="https://genesisfinal.github.io/monitor-financiero/" target="_blank" rel="noopener noreferrer" class="overlay-btn-launch">
               <span>Abrir Tablero</span>
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </a>
-            <button class="overlay-btn-details" title="Ver ficha completa" onclick="openModal('demografico')">
+            <button class="overlay-btn-details" title="Ver ficha completa" onclick="openModal('finanzas')">
               <i class="fa-solid fa-list-check"></i>
             </button>
           </div>
         </div>
       </article>
 
-      <!-- 5. Tablero de Seguros de Retiro -->
-      <article class="card" data-category="economia" data-tags="retiro fondos rentabilidad rendimiento cuentas individuales coberturas pension inversion">
-        <div class="card-accent-bar"></div>
-        <div class="card-body">
-          <div class="card-header-top">
-            <div class="card-icon-wrapper">
-              <i class="fa-solid fa-piggy-bank"></i>
-            </div>
-            <span class="category-chip">Seguros de Retiro</span>
-          </div>
-          <h3 class="card-title">Tablero de Seguros de Retiro</h3>
-          <div class="card-tags">
-            <span class="card-tag">Planes de Retiro</span>
-            <span class="card-tag">Garantizada</span>
-            <span class="card-tag">Cuentas</span>
-          </div>
-        </div>
-        <div class="card-footer">
-          <a href="https://genesisfinal.github.io/tablero-retiro/" target="_blank" rel="noopener noreferrer" class="btn-launch">
-            <span>Abrir Tablero</span>
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </a>
-          <button class="btn-details" title="Ver detalles" onclick="openModal('retiro')">
-            <i class="fa-solid fa-circle-info"></i>
-          </button>
-        </div>
-        <!-- Hover Overlay Descriptivo -->
-        <div class="card-hover-overlay">
-          <div class="overlay-top">
-            <span class="overlay-category"><i class="fa-solid fa-piggy-bank"></i> Seguros de Retiro</span>
-            <i class="fa-solid fa-circle-info overlay-info-icon"></i>
-          </div>
-          <p class="overlay-text">
-            Seguimiento de fondos de retiro, rentabilidades nominales y reales garantizadas, evolución de cuentas individuales y comparativas de coberturas.
-          </p>
-          <div class="overlay-footer">
-            <a href="https://genesisfinal.github.io/tablero-retiro/" target="_blank" rel="noopener noreferrer" class="overlay-btn-launch">
-              <span>Abrir Tablero</span>
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-            <button class="overlay-btn-details" title="Ver ficha completa" onclick="openModal('retiro')">
-              <i class="fa-solid fa-list-check"></i>
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- 6. Tablero de Balances de Aseguradoras (SINENSUP) -->
-      <article class="card" data-category="balances" data-tags="balances aseguradoras sinensup ssn solvencia estados contables ranking patrimonio primas">
-        <div class="card-accent-bar"></div>
-        <div class="card-body">
-          <div class="card-header-top">
-            <div class="card-icon-wrapper">
-              <i class="fa-solid fa-scale-balanced"></i>
-            </div>
-            <span class="category-chip">Balances & Solvencia SSN</span>
-          </div>
-          <h3 class="card-title">Tablero de Balances de Aseguradoras</h3>
-          <div class="card-tags">
-            <span class="card-tag">SINENSUP SSN</span>
-            <span class="card-tag">Solvencia</span>
-            <span class="card-tag">Ranking</span>
-          </div>
-        </div>
-        <div class="card-footer">
-          <a href="https://genesisfinal.github.io/tablero-sinensup/" target="_blank" rel="noopener noreferrer" class="btn-launch">
-            <span>Abrir Tablero</span>
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </a>
-          <button class="btn-details" title="Ver detalles" onclick="openModal('balances')">
-            <i class="fa-solid fa-circle-info"></i>
-          </button>
-        </div>
-        <!-- Hover Overlay Descriptivo -->
-        <div class="card-hover-overlay">
-          <div class="overlay-top">
-            <span class="overlay-category"><i class="fa-solid fa-scale-balanced"></i> Balances & Solvencia</span>
-            <i class="fa-solid fa-circle-info overlay-info-icon"></i>
-          </div>
-          <p class="overlay-text">
-            Estados contables del sistema SINENSUP / SSN, balances trimestrales de aseguradoras, rankings de producción, ratios de solvencia y liquidez.
-          </p>
-          <div class="overlay-footer">
-            <a href="https://genesisfinal.github.io/tablero-sinensup/" target="_blank" rel="noopener noreferrer" class="overlay-btn-launch">
-              <span>Abrir Tablero</span>
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-            <button class="overlay-btn-details" title="Ver ficha completa" onclick="openModal('balances')">
-              <i class="fa-solid fa-list-check"></i>
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- 7. Monitor de Mercados Financieros (Rava) -->
+      <!-- 7. Monitor de Mercado Financieros -->
       <article class="card" data-category="finanzas" data-tags="mercado rava byma merval acciones bonos cedears cauciones cotizaciones en vivo">
         <div class="card-accent-bar"></div>
         <div class="card-body">
@@ -1410,7 +1410,7 @@
             </div>
             <span class="category-chip">Mercados Bursátiles</span>
           </div>
-          <h3 class="card-title">Monitor de Mercados Financieros</h3>
+          <h3 class="card-title">Monitor de Mercado Financieros</h3>
           <div class="card-tags">
             <span class="card-tag">BYMA / Merval</span>
             <span class="card-tag">CEDEARs</span>
