@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comparativa de Favicons | La Segunda Seguros</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    :root {
+      --ls-red-primary: #e20039;
+      --ls-red-dark: #b91f38;
+      --ls-red-light: #f42c4b;
+      --ls-red-vibrant: #ff4c60;
+      --ls-yellow: #f8cc59;
+      --ls-charcoal: #1c1f24;
+      --bg-dark: #0f172a;
+      --card-bg: #1e293b;
+      --border-color: #334155;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Sora', sans-serif;
+      background: var(--bg-dark);
+      color: #f8fafc;
+      padding: 40px 20px 60px;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    h1 span { color: var(--ls-red-primary); }
+    p.subtitle {
+      font-size: 1rem;
+      color: #94a3b8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .option-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      position: relative;
+    }
+    .option-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--ls-red-primary);
+    }
+    .option-card.recommended {
+      border: 2px solid var(--ls-red-primary);
+      box-shadow: 0 0 20px rgba(226, 0, 57, 0.25);
+    }
+
+    .badge-top {
+      position: absolute;
+      top: -12px;
+      background: var(--ls-red-primary);
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .icon-preview-lg {
+      width: 110px;
+      height: 110px;
+      margin: 16px 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .icon-preview-lg svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3));
+    }
+
+    .option-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .option-tag {
+      font-size: 0.75rem;
+      color: var(--ls-red-light);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+    .option-desc {
+      font-size: 0.84rem;
+      color: #94a3b8;
+      line-height: 1.45;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .tab-sim-box {
+      width: 100%;
+      background: #0b1120;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-top: auto;
+      text-align: left;
+    }
+    .tab-sim-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748b;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .tab-sim-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      font-size: 0.8rem;
+    }
+    .tab-sim-row.light {
+      background: #f1f5f9;
+      color: #1e293b;
+      font-weight: 600;
+    }
+    .tab-sim-row.dark {
+      background: #1e293b;
+      color: #f1f5f9;
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+    .tab-sim-row svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+    .tab-sim-row span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .back-btn-wrap {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--ls-red-primary);
+      color: white;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s ease;
+    }
+    .back-btn:hover {
+      background: var(--ls-red-dark);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Propuestas de <span>Favicon</span></h1>
+      <p class="subtitle">Ecosistema de Tableros • La Segunda Seguros • Gerencia de Personas</p>
+    </header>
+
+    <div class="grid">
+
+      <!-- OPCIÓN 1 -->
+      <div class="option-card recommended">
+        <div class="badge-top">Opción 1 ★ Recomendada</div>
+        <div class="icon-preview-lg">
+          <!-- SVG 1 -->
+          <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#f42c4b"/>
+                <stop offset="100%" stop-color="#b91f38"/>
+              </linearGradient>
+            </defs>
+            <rect width="128" height="128" rx="28" fill="url(#g1)"/>
+            <circle cx="110" cy="18" r="35" fill="white" fill-opacity="0.12"/>
+            <text x="64" y="85" font-family="'Sora', sans-serif" font-size="58" font-weight="800" fill="white" text-anchor="middle" letter-spacing="-1">LS</text>
+          </svg>
+        </div>
+        <div class="option-title">Monograma LS</div>
+        <div class="option-tag">Clásico Institucional</div>
+        <p class="option-desc">Máxima fidelidad y reconocimiento de marca. Fondo en Rojo Seguro con las siglas oficiales en tipografía Sora.</p>
+        <div class="tab-sim-box">
+          <div class="tab-sim-title">Simulación en Pestaña:</div>
+          <div class="tab-sim-row light">
+            <svg viewBox="0 0 128 128"><rect width="128" height="128" rx="28" fill="#e20039"/><text x="64" y="85" font-family="sans-serif" font-size="58" font-weight="800" fill="white" text-anchor="middle">LS</text></svg>
+            <span>Ecosistema de Tab...</span>
+          </div>
+          <div class="tab-sim-row dark">
+            <svg viewBox="0 0 128 128"><rect width="128" height="128" rx="28" fill="#e20039"/><text x="64" y="85" font-family="sans-serif" font-size="58" font-weight="800" fill="white" text-anchor="middle">LS</text></svg>
+            <span>Ecosistema de Tab...</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- OPCIÓN 2 -->
+      <div class="option-card">
+        <div class="badge-top" style="background:#475569;">Opción 2</div>
+        <div class="icon-preview-lg">
+          <!-- SVG 2 -->
+          <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+            <rect width="128" height="128" rx="28" fill="#1c1f24"/>
+            <rect x="18" y="18" width="42" height="42" rx="10" fill="#b91f38"/>
+            <rect x="68" y="18" width="42" height="42" rx="10" fill="#e20039"/>
+            <rect x="18" y="68" width="42" height="42" rx="10" fill="#f42c4b"/>
+            <rect x="68" y="68" width="42" height="42" rx="10" fill="#ff4c60"/>
+            <path d="M74 96 L82 86 L88 91 L98 76" stroke="white" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="98" cy="76" r="3.5" fill="#f8cc59"/>
+          </svg>
+        </div>
+        <div class="option-title">Mosaico 2x2</div>
+        <div class="option-tag">Ecosistema & Datos</div>
+        <p class="option-desc">Inspirado en el patrón de mosaico del Brandbook, con 4 rojos análogos y una métrica de tendencia en el bloque activo.</p>
+        <div class="tab-sim-box">
+          <div class="tab-sim-title">Simulación en Pestaña:</div>
+          <div class="tab-sim-row light">
+            <svg viewBox="0 0 128 128"><rect width="128" height="128" rx="28" fill="#1c1f24"/><rect x="18" y="18" width="42" height="42" rx="10" fill="#b91f38"/><rect x="68" y="18" width="42" height="42" rx="10" fill="#e20039"/><rect x="18" y="68" width="42" height="42" rx="10" fill="#f42c4b"/><rect x="68" y="68" width="42" height="42" rx="10" fill="#ff4c60"/><path d="M74 96 L82 86 L88 91 L98 76" stroke="white" stroke-width="5" stroke-linecap="round" fill="none"/><circle cx="98" cy="76" r="4" fill="#f8cc59"/></svg>
+            <span>Ecosistema de Tab...</span>
+          </div>
+          <div class="tab-sim-row dark">
+            <svg viewBox="0 0 128 128"><rect width="128" height="128" rx="28" fill="#1c1f24"/><rect x="18" y="18" width="42" height="42" rx="10" fill="#b91f38"/><rect x="68" y="18" width="42" height="42" rx="10" fill="#e20039"/><rect x="18" y="68" width="42" height="42" rx="10" fill="#f42c4b"/><rect x="68" y="68" width="42" height="42" rx="10" fill="#ff4c60"/><path d="M74 96 L82 86 L88 91 L98 76" stroke="white" stroke-width="5" stroke-linecap="round" fill="none"/><circle cx="98" cy="76" r="4" fill="#f8cc59"/></svg>
+            <span>Ecosistema de Tab...</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- OPCIÓN 3 -->
+      <div class="option-card">
+        <div class="badge-top" style="background:#475569;">Opción 3</div>
+        <div class="icon-preview-lg">
+          <!-- SVG 3 -->
+          <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff4c60"/>
+                <stop offset="100%" stop-color="#b91f38"/>
+              </linearGradient>
+            </defs>
+            <rect width="128" height="128" rx="28" fill="#1c1f24"/>
+            <path d="M64 16 L100 32 V62 C100 86 64 108 64 108 C64 108 28 86 28 62 V32 Z" fill="url(#g3)"/>
+            <rect x="44" y="64" width="9" height="20" rx="3" fill="white" fill-opacity="0.9"/>
+            <rect x="59" y="52" width="9" height="32" rx="3" fill="white"/>
+            <rect x="74" y="40" width="9" height="44" rx="3" fill="#f8cc59"/>
+          </svg>
+        </div>
+        <div class="option-title">Escudo Analítico</div>
+        <div class="option-tag">Protección & Solvencia</div>
+        <p class="option-desc">Fusión entre el escudo protector del seguro de personas y las barras estadísticas ascendentes.</p>
+        <div class="tab-sim-box">
+          <div class="tab-sim-title">Simulación en Pestaña:</div>
+          <div class="tab-sim-row light">
+            <svg viewBox="0 0 128 128"><rect width="128" height="128" rx="28" fill="#1c1f24"/><path d="M64 16 L100 32 V62 C100 86 64 108 64 108 C64 108 28 86 28 62 V32 Z" fill="#e20039"/><rect x="44" y="64" width="9" height="20" rx="3" fill="white"/><rect x="59" y="52" width="9" height="32" rx="3" fill="white"/><rect x="74" y="40" width="9" height="44" rx="3" fill="#f8cc59"/></svg>
+            <span>Ecosistema de Tab...</span>
+          </div>
+          <div class="tab-sim-row dark">
+            <svg viewBox="0 0 128 128"><rect width="128" height="128" rx="28" fill="#1c1f24"/><path d="M64 16 L100 32 V62 C100 86 64 108 64 108 C64 108 28 86 28 62 V32 Z" fill="#e20039"/><rect x="44" y="64" width="9" height="20" rx="3" fill="white"/><rect x="59" y="52" width="9" height="32" rx="3" fill="white"/><rect x="74" y="40" width="9" height="44" rx="3" fill="#f8cc59"/></svg>
+            <span>Ecosistema de Tab...</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- OPCIÓN 4 -->
+      <div class="option-card">
+        <div class="badge-top" style="background:#475569;">Opción 4</div>
+        <div class="icon-preview-lg">
+          <!-- SVG 4 -->
+          <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+            <rect width="128" height="128" rx="28" fill="#1c1f24"/>
+            <line x1="64" y1="64" x2="64" y2="28" stroke="rgba(255,255,255,0.4)" stroke-width="4" stroke-dasharray="4,4"/>
+            <line x1="64" y1="64" x2="30" y2="88" stroke="rgba(255,255,255,0.4)" stroke-width="4" stroke-dasharray="4,4"/>
+            <line x1="64" y1="64" x2="98" y2="88" stroke="rgba(255,255,255,0.4)" stroke-width="4" stroke-dasharray="4,4"/>
+            <circle cx="64" cy="28" r="12" fill="#3ac792"/>
+            <circle cx="30" cy="88" r="12" fill="#f8cc59"/>
+            <circle cx="98" cy="88" r="12" fill="#4183ca"/>
+            <circle cx="64" cy="64" r="22" fill="#e20039"/>
+            <circle cx="64" cy="64" r="14" fill="white"/>
+            <circle cx="64" cy="64" r="7" fill="#e20039"/>
+          </svg>
+        </div>
+        <div class="option-title">Nodo Conector</div>
+        <div class="option-tag">Hub Tecnológico</div>
+        <p class="option-desc">Nodo central rojo con satélites interconectados en la paleta complementaria (Menta, Oro y Azul).</p>
+        <div class="tab-sim-box">
+          <div class="tab-sim-title">Simulación en Pestaña:</div>
+          <div class="tab-sim-row light">
+            <svg viewBox="0 0 128 128"><rect width="128" height="128" rx="28" fill="#1c1f24"/><circle cx="64" cy="28" r="12" fill="#3ac792"/><circle cx="30" cy="88" r="12" fill="#f8cc59"/><circle cx="98" cy="88" r="12" fill="#4183ca"/><circle cx="64" cy="64" r="22" fill="#e20039"/><circle cx="64" cy="64" r="12" fill="white"/></svg>
+            <span>Ecosistema de Tab...</span>
+          </div>
+          <div class="tab-sim-row dark">
+            <svg viewBox="0 0 128 128"><rect width="128" height="128" rx="28" fill="#1c1f24"/><circle cx="64" cy="28" r="12" fill="#3ac792"/><circle cx="30" cy="88" r="12" fill="#f8cc59"/><circle cx="98" cy="88" r="12" fill="#4183ca"/><circle cx="64" cy="64" r="22" fill="#e20039"/><circle cx="64" cy="64" r="12" fill="white"/></svg>
+            <span>Ecosistema de Tab...</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- OPCIÓN 5 -->
+      <div class="option-card">
+        <div class="badge-top" style="background:#475569;">Opción 5</div>
+        <div class="icon-preview-lg">
+          <!-- SVG 5 -->
+          <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#e20039"/>
+                <stop offset="100%" stop-color="#512420"/>
+              </linearGradient>
+              <linearGradient id="g5_area" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#ff4c60" stop-opacity="0.5"/>
+                <stop offset="100%" stop-color="#e20039" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <rect width="128" height="128" rx="28" fill="url(#g5)"/>
+            <path d="M22 96 Q56 90 74 60 T106 32 V96 H22 Z" fill="url(#g5_area)"/>
+            <path d="M22 96 Q56 90 74 60 T106 32" stroke="white" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+            <circle cx="106" cy="32" r="8.5" fill="#f8cc59"/>
+            <circle cx="106" cy="32" r="4" fill="white"/>
+          </svg>
+        </div>
+        <div class="option-title">Proyección Actuarial</div>
+        <div class="option-tag">Crecimiento & Retiro</div>
+        <p class="option-desc">Curva de capitalización y rentabilidad matemática con el vértice superior en oro institucional.</p>
+        <div class="tab-sim-box">
+          <div class="tab-sim-title">Simulación en Pestaña:</div>
+          <div class="tab-sim-row light">
+            <svg viewBox="0 0 128 128"><rect width="128" height="128" rx="28" fill="#e20039"/><path d="M22 96 Q56 90 74 60 T106 32" stroke="white" stroke-width="8" stroke-linecap="round" fill="none"/><circle cx="106" cy="32" r="10" fill="#f8cc59"/></svg>
+            <span>Ecosistema de Tab...</span>
+          </div>
+          <div class="tab-sim-row dark">
+            <svg viewBox="0 0 128 128"><rect width="128" height="128" rx="28" fill="#e20039"/><path d="M22 96 Q56 90 74 60 T106 32" stroke="white" stroke-width="8" stroke-linecap="round" fill="none"/><circle cx="106" cy="32" r="10" fill="#f8cc59"/></svg>
+            <span>Ecosistema de Tab...</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="back-btn-wrap">
+      <a href="index.html" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Volver al Ecosistema de Tableros</span>
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
