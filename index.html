@@ -1058,7 +1058,7 @@
       <div class="hero-metrics">
         <div class="metric-item">
           <div class="metric-value">
-            <span class="dot"></span> 7
+            <span class="dot"></span> 8
           </div>
           <div class="metric-label">Herramientas en Línea</div>
         </div>
@@ -1105,13 +1105,16 @@
         <button class="filter-btn" data-filter="balances">
           <i class="fa-solid fa-building-columns"></i> Balances & SSN
         </button>
+        <button class="filter-btn" data-filter="ia">
+          <i class="fa-solid fa-brain"></i> IA & Estrategia
+        </button>
       </div>
     </div>
 
     <!-- Section Title & Results Count -->
     <div class="section-header">
       <h2 class="section-title">Tableros y Monitores Disponibles</h2>
-      <span class="results-count" id="results-count">Mostrando 7 de 7 tableros</span>
+      <span class="results-count" id="results-count">Mostrando 8 de 8 tableros</span>
     </div>
 
     <!-- Grid of Dashboards -->
@@ -1446,6 +1449,53 @@
         </div>
       </article>
 
+      <!-- 8. SegurosAI - Hub de Conocimiento para Líderes -->
+      <article class="card" data-category="ia" data-tags="ia inteligencia artificial segurosai hub conocimiento lideres articulos chat modelos lenguaje innovacion estrategia casos de uso gestion">
+        <div class="card-accent-bar"></div>
+        <div class="card-body">
+          <div class="card-header-top">
+            <div class="card-icon-wrapper">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <span class="category-chip">IA & Estrategia</span>
+          </div>
+          <h3 class="card-title">SegurosAI - Hub de Conocimiento</h3>
+          <div class="card-tags">
+            <span class="card-tag">Inteligencia Artificial</span>
+            <span class="card-tag">Liderazgo</span>
+            <span class="card-tag">51 Artículos & Chat</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://genesisfinal.github.io/seguros-ai-hub/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+            <span>Abrir Hub AI</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <button class="btn-details" title="Ver detalles" onclick="openModal('segurosai')">
+            <i class="fa-solid fa-circle-info"></i>
+          </button>
+        </div>
+        <!-- Hover Overlay Descriptivo -->
+        <div class="card-hover-overlay">
+          <div class="overlay-top">
+            <span class="overlay-category"><i class="fa-solid fa-brain"></i> IA & Estrategia</span>
+            <i class="fa-solid fa-circle-info overlay-info-icon"></i>
+          </div>
+          <p class="overlay-text">
+            Hub interactivo de conocimiento y chat con IA especializado para líderes de la industria aseguradora: base de 51 artículos técnicos, casos de uso, briefings ejecutivos y análisis estratégico.
+          </p>
+          <div class="overlay-footer">
+            <a href="https://genesisfinal.github.io/seguros-ai-hub/" target="_blank" rel="noopener noreferrer" class="overlay-btn-launch">
+              <span>Abrir Hub AI</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <button class="overlay-btn-details" title="Ver ficha completa" onclick="openModal('segurosai')">
+              <i class="fa-solid fa-list-check"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+
       <!-- Empty State for Search -->
       <div class="empty-state" id="empty-state">
         <i class="fa-solid fa-magnifying-glass-arrow-right"></i>
@@ -1597,6 +1647,17 @@
           'Volúmenes operados, variaciones intradiarias y gráficos de velas.',
           'Cotizaciones de ADRs en Wall Street y activos globales.',
           'Cauciones bursátiles y tasas de interés de corto plazo.'
+        ]
+      },
+      segurosai: {
+        title: 'SegurosAI - Hub de Conocimiento para Líderes',
+        description: 'Hub estratégico de conocimiento y chat interactivo con inteligencia artificial enfocado en la transformación del negocio asegurador.',
+        url: 'https://genesisfinal.github.io/seguros-ai-hub/',
+        features: [
+          'Biblioteca de 51 artículos técnicos categorizados sobre analítica, suscripción, siniestros y LLMs.',
+          'Asistente y Chat con IA contextualizado en la industria del seguro y liderazgo.',
+          'Casos de uso reales de IA generativa y predictiva aplicados al mercado asegurador.',
+          'Executive briefings, tendencias tecnológicas globales y guías de adopción para líderes.'
         ]
       }
     };
