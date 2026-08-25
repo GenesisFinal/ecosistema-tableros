@@ -17,6 +17,7 @@ Diseñado y estructurado bajo los lineamientos oficiales de identidad visual del
 | **Calculadora Actuarial** | [Acceder](https://genesisfinal.github.io/calculadora-actuarial/) | Biometría, Reservas & Primas |
 | **Monitor Activos Financieros** | [Acceder](https://genesisfinal.github.io/monitor-financiero/) | Renta Fija, Variable & FX |
 | **Monitor de Mercado Financieros** | [Acceder](https://mercado.rava.com/) | Cotizaciones BYMA en Vivo |
+| **SegurosAI - Hub de Conocimiento** | [Acceder](https://genesisfinal.github.io/seguros-ai-hub/) | IA, Liderazgo & Artículos Técnicos |
 
 ---
 
