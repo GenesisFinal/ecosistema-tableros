@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Degradado Oficial La Segunda (Rojo Seguro -> Rojo Oscuro) -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e20039"/>
+      <stop offset="100%" stop-color="#b91f38"/>
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Contenedor / Badge redondeado con sombra -->
+  <rect x="32" y="32" width="448" height="448" rx="112" fill="url(#bgGrad)" filter="url(#softShadow)"/>
+
+  <!-- Ícono Gráfico Circular (chart-pie) -->
+  <g fill="#ffffff" transform="translate(256, 256)">
+    <!-- Porción Principal (3/4 de círculo) -->
+    <path d="M -130 0 A 130 130 0 1 0 0 -130 L 0 0 Z" />
+    <!-- Porción Separada (1/4 de círculo desplazado hacia arriba y derecha) -->
+    <path d="M 12 -142 A 130 130 0 0 1 142 -12 L 12 -12 Z" />
+  </g>
+</svg>
