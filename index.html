@@ -522,7 +522,8 @@
       width: 100%;
       background: var(--ls-red-primary);
     }
-    .card[data-category="economia"] .card-accent-bar { background: var(--ls-red-primary); }
+    .card[data-category="seguros"] .card-accent-bar { background: var(--ls-red-primary); }
+    .card[data-category="economia"] .card-accent-bar { background: #0284c7; }
     .card[data-category="finanzas"] .card-accent-bar { background: var(--ls-blue); }
     .card[data-category="actuarial"] .card-accent-bar { background: var(--ls-mint); }
     .card[data-category="demografico"] .card-accent-bar { background: var(--ls-yellow); }
@@ -561,7 +562,8 @@
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
     }
 
-    .card[data-category="economia"] .card-icon-wrapper { background: linear-gradient(135deg, var(--ls-red-primary), var(--ls-red-dark)); }
+    .card[data-category="seguros"] .card-icon-wrapper { background: linear-gradient(135deg, var(--ls-red-primary), var(--ls-red-dark)); }
+    .card[data-category="economia"] .card-icon-wrapper { background: linear-gradient(135deg, #0284c7, #075985); }
     .card[data-category="finanzas"] .card-icon-wrapper { background: linear-gradient(135deg, var(--ls-blue), #2a5a8c); }
     .card[data-category="actuarial"] .card-icon-wrapper { background: linear-gradient(135deg, #10b981, #047857); }
     .card[data-category="demografico"] .card-icon-wrapper { background: linear-gradient(135deg, #f59e0b, #d97706); }
@@ -1061,7 +1063,7 @@
       <div class="hero-metrics">
         <div class="metric-item">
           <div class="metric-value">
-            <span class="dot"></span> 8
+            <span class="dot"></span> 9
           </div>
           <div class="metric-label">Herramientas en Línea</div>
         </div>
@@ -1096,8 +1098,11 @@
         <button class="filter-btn active" data-filter="all">
           <i class="fa-solid fa-border-all"></i> Todos
         </button>
+        <button class="filter-btn" data-filter="seguros">
+          <i class="fa-solid fa-shield-halved"></i> Seguros & SSN
+        </button>
         <button class="filter-btn" data-filter="economia">
-          <i class="fa-solid fa-chart-line"></i> Economía & Seguros
+          <i class="fa-solid fa-chart-line"></i> Macroeconomía
         </button>
         <button class="filter-btn" data-filter="finanzas">
           <i class="fa-solid fa-coins"></i> Finanzas
@@ -1106,7 +1111,7 @@
           <i class="fa-solid fa-calculator"></i> Actuarial & Demo
         </button>
         <button class="filter-btn" data-filter="balances">
-          <i class="fa-solid fa-building-columns"></i> Balances & SSN
+          <i class="fa-solid fa-building-columns"></i> Balances
         </button>
         <button class="filter-btn" data-filter="ia">
           <i class="fa-solid fa-brain"></i> IA & Estrategia
@@ -1117,14 +1122,14 @@
     <!-- Section Title & Results Count -->
     <div class="section-header">
       <h2 class="section-title">Tableros y Monitores Disponibles</h2>
-      <span class="results-count" id="results-count">Mostrando 8 de 8 tableros</span>
+      <span class="results-count" id="results-count">Mostrando 9 de 9 tableros</span>
     </div>
 
     <!-- Grid of Dashboards -->
     <div class="dashboard-grid" id="dashboard-grid">
 
       <!-- 1. Tablero de Retiro -->
-      <article class="card" data-category="economia" data-tags="retiro fondos rentabilidad rendimiento cuentas individuales coberturas pension inversion">
+      <article class="card" data-category="seguros" data-tags="retiro fondos rentabilidad rendimiento cuentas individuales coberturas pension inversion">
         <div class="card-accent-bar"></div>
         <div class="card-body">
           <div class="card-header-top">
@@ -1217,25 +1222,72 @@
         </div>
       </article>
 
-      <!-- 3. Económico y Mercado Asegurador -->
-      <article class="card" data-category="economia" data-tags="macroeconomia inflacion seguros primas ssn produccion siniestros tasas">
+      <!-- 3. Tablero de Seguros -->
+      <article class="card" data-category="seguros" data-tags="seguros ssn mercado asegurador produccion primas ramos automotores art vida retiro siniestralidad juicios ranking">
         <div class="card-accent-bar"></div>
         <div class="card-body">
           <div class="card-header-top">
             <div class="card-icon-wrapper">
-              <i class="fa-solid fa-chart-pie"></i>
+              <i class="fa-solid fa-shield-halved"></i>
             </div>
-            <span class="category-chip">Economía & Seguros</span>
+            <span class="category-chip">Mercado Asegurador SSN</span>
           </div>
-          <h3 class="card-title">Económico y Mercado Asegurador</h3>
+          <h3 class="card-title">Tablero de Seguros</h3>
           <div class="card-tags">
-            <span class="card-tag">Macroeconomía</span>
-            <span class="card-tag">Mercado Asegurador</span>
-            <span class="card-tag">Inflación</span>
+            <span class="card-tag">Producción SSN</span>
+            <span class="card-tag">Primas por Ramo</span>
+            <span class="card-tag">Siniestralidad</span>
           </div>
         </div>
         <div class="card-footer">
-          <a href="https://genesisfinal.github.io/monitor-economico-financiero/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+          <a href="https://genesisfinal.github.io/tablero-seguros/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+            <span>Abrir Tablero</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <button class="btn-details" title="Ver detalles" onclick="openModal('seguros')">
+            <i class="fa-solid fa-circle-info"></i>
+          </button>
+        </div>
+        <!-- Hover Overlay Descriptivo -->
+        <div class="card-hover-overlay">
+          <div class="overlay-top">
+            <span class="overlay-category"><i class="fa-solid fa-shield-halved"></i> Mercado Asegurador SSN</span>
+            <i class="fa-solid fa-circle-info overlay-info-icon"></i>
+          </div>
+          <p class="overlay-text">
+            Análisis integral del mercado asegurador argentino: primas emitidas por ramo (Automotores, ART, Vida, Retiro, Patrimoniales), siniestralidad devengada y juicios con datos oficiales de la SSN.
+          </p>
+          <div class="overlay-footer">
+            <a href="https://genesisfinal.github.io/tablero-seguros/" target="_blank" rel="noopener noreferrer" class="overlay-btn-launch">
+              <span>Abrir Tablero</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <button class="overlay-btn-details" title="Ver ficha completa" onclick="openModal('seguros')">
+              <i class="fa-solid fa-list-check"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. Tablero de Indicadores Económicos -->
+      <article class="card" data-category="economia" data-tags="economia macroeconomia inflacion ipc indec bcra tasas interes lefi tam plazos fijos dolares mep ccl tipo de cambio salarios actividad">
+        <div class="card-accent-bar"></div>
+        <div class="card-body">
+          <div class="card-header-top">
+            <div class="card-icon-wrapper">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <span class="category-chip">Macroeconomía & Finanzas</span>
+          </div>
+          <h3 class="card-title">Tablero de Indicadores Económicos</h3>
+          <div class="card-tags">
+            <span class="card-tag">Inflación IPC</span>
+            <span class="card-tag">Tasas BCRA</span>
+            <span class="card-tag">Tipos de Cambio</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://genesisfinal.github.io/tablero-economia/" target="_blank" rel="noopener noreferrer" class="btn-launch">
             <span>Abrir Tablero</span>
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
@@ -1246,14 +1298,14 @@
         <!-- Hover Overlay Descriptivo -->
         <div class="card-hover-overlay">
           <div class="overlay-top">
-            <span class="overlay-category"><i class="fa-solid fa-chart-pie"></i> Economía & Seguros</span>
+            <span class="overlay-category"><i class="fa-solid fa-chart-line"></i> Macroeconomía & Finanzas</span>
             <i class="fa-solid fa-circle-info overlay-info-icon"></i>
           </div>
           <p class="overlay-text">
-            Monitoreo macroeconómico, evolución de la inflación, tasas de interés, producción del mercado asegurador y análisis siniestral con datos consolidados.
+            Monitoreo macroeconómico de Argentina: trayectoria del IPC mensual e interanual, tasas de política monetaria del BCRA, cotizaciones de divisas (oficial, MEP, CCL) y variables salariales.
           </p>
           <div class="overlay-footer">
-            <a href="https://genesisfinal.github.io/monitor-economico-financiero/" target="_blank" rel="noopener noreferrer" class="overlay-btn-launch">
+            <a href="https://genesisfinal.github.io/tablero-economia/" target="_blank" rel="noopener noreferrer" class="overlay-btn-launch">
               <span>Abrir Tablero</span>
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </a>
@@ -1264,7 +1316,7 @@
         </div>
       </article>
 
-      <!-- 4. Demográfico y Estadístico -->
+      <!-- 5. Demográfico y Estadístico -->
       <article class="card" data-category="actuarial" data-tags="demografia poblacion indec piramide poblacional esperanza de vida estadistica censo territorio">
         <div class="card-accent-bar"></div>
         <div class="card-body">
@@ -1311,7 +1363,7 @@
         </div>
       </article>
 
-      <!-- 5. Calculadora Actuarial -->
+      <!-- 6. Calculadora Actuarial -->
       <article class="card" data-category="actuarial" data-tags="actuarial calculadora tablas de mortalidad reservas primas biometria matematica financiero">
         <div class="card-accent-bar"></div>
         <div class="card-body">
@@ -1358,7 +1410,7 @@
         </div>
       </article>
 
-      <!-- 6. Monitor Activos Financieros -->
+      <!-- 7. Monitor Activos Financieros -->
       <article class="card" data-category="finanzas" data-tags="activos bonos acciones rendimientos carteras merval tipo de cambio dolar inversiones">
         <div class="card-accent-bar"></div>
         <div class="card-body">
@@ -1405,7 +1457,7 @@
         </div>
       </article>
 
-      <!-- 7. Monitor de Mercado Financieros -->
+      <!-- 8. Monitor de Mercado Financieros -->
       <article class="card" data-category="finanzas" data-tags="mercado rava byma merval acciones bonos cedears cauciones cotizaciones en vivo">
         <div class="card-accent-bar"></div>
         <div class="card-body">
@@ -1452,7 +1504,7 @@
         </div>
       </article>
 
-      <!-- 8. SegurosAI - Hub de Conocimiento para Líderes -->
+      <!-- 9. SegurosAI - Hub de Conocimiento para Líderes -->
       <article class="card" data-category="ia" data-tags="ia inteligencia artificial segurosai hub conocimiento lideres articulos chat modelos lenguaje innovacion estrategia casos de uso gestion">
         <div class="card-accent-bar"></div>
         <div class="card-body">
@@ -1548,8 +1600,8 @@
           <ul>
             <li><a href="https://genesisfinal.github.io/tablero-retiro/" target="_blank"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem;"></i> Tablero de Retiro</a></li>
             <li><a href="https://genesisfinal.github.io/tablero-sinensup/" target="_blank"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem;"></i> Balances de Aseguradoras</a></li>
-            <li><a href="https://genesisfinal.github.io/monitor-economico-financiero/" target="_blank"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem;"></i> Económico y Asegurador</a></li>
-            <li><a href="https://genesisfinal.github.io/calculadora-actuarial/" target="_blank"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem;"></i> Calculadora Actuarial</a></li>
+            <li><a href="https://genesisfinal.github.io/tablero-seguros/" target="_blank"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem;"></i> Tablero de Seguros</a></li>
+            <li><a href="https://genesisfinal.github.io/tablero-economia/" target="_blank"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem;"></i> Indicadores Económicos</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -1575,15 +1627,26 @@
   <script>
     // Base de datos de detalles de cada tablero
     const dashboardDetails = {
-      economia: {
-        title: 'Monitor Económico y del Mercado Asegurador',
-        description: 'Plataforma de seguimiento integral de indicadores macroeconómicos de Argentina y métricas clave de la industria aseguradora nacional.',
-        url: 'https://genesisfinal.github.io/monitor-economico-financiero/',
+      seguros: {
+        title: 'Tablero de Seguros | Mercado Asegurador Argentino',
+        description: 'Plataforma interactiva para el análisis de producción de primas por ramo, siniestralidad devengada, juicios y evolución del mercado asegurador argentino.',
+        url: 'https://genesisfinal.github.io/tablero-seguros/',
         features: [
-          'Evolución del IPC mensual, interanual y tasas de política monetaria.',
-          'Producción de primas por ramo (Automotores, ART, Vida, Retiro, Patrimoniales).',
-          'Siniestralidad devengada y ratios técnicos consolidados.',
-          'Fuentes oficiales: SSN, INDEC, Banco Central de la República Argentina (BCRA).'
+          'Producción y evolución de primas emitidas por ramo (Automotores, ART, Vida, Retiro, Patrimoniales).',
+          'Siniestralidad técnica devengada y litigiosidad / juicios en trámite.',
+          'Indicadores clave de primaje y penetración en el mercado asegurador.',
+          'Fuente oficial: Superintendencia de Seguros de la Nación (SSN).'
+        ]
+      },
+      economia: {
+        title: 'Tablero de Indicadores Económicos',
+        description: 'Plataforma de seguimiento y proyección de las principales variables macroeconómicas, monetarias y cambiarias de la República Argentina.',
+        url: 'https://genesisfinal.github.io/tablero-economia/',
+        features: [
+          'Trayectoria histórica y proyecciones de inflación mensual e interanual (IPC INDEC).',
+          'Tasas de interés de política monetaria (LEFI, TAM, plazos fijos).',
+          'Tipos de cambio oficiales y bursátiles (Mayorista, Minorista, MEP, CCL).',
+          'Fuentes oficiales: INDEC y Banco Central de la República Argentina (BCRA).'
         ]
       },
       finanzas: {
