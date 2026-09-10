@@ -12,7 +12,7 @@ Diseñado y estructurado bajo los lineamientos oficiales de identidad visual del
 | :--- | :--- | :--- |
 | **Tablero de Retiro** | [Acceder](https://genesisfinal.github.io/tablero-retiro/) | Fondos & Cuentas Individuales |
 | **Balances de Aseguradoras** | [Acceder](https://genesisfinal.github.io/tablero-sinensup/) | Balances, Solvencia & SSN |
-| **Tablero de Seguros** | [Acceder](https://genesisfinal.github.io/tablero-seguros/) | Mercado Asegurador, Primas & SSN |
+| **Tablero de Seguros v2** | [Acceder](https://genesisfinal.github.io/tablero-seguros-v2/) | Mercado Asegurador Argentino (Bases SSN) |
 | **Tablero de Indicadores Económicos** | [Acceder](https://genesisfinal.github.io/tablero-economia/) | Macroeconomía, IPC & BCRA |
 | **Demográfico y Estadístico** | [Acceder](https://genesisfinal.github.io/monitor-demografico-estadistico/) | Estructura Etaria & INDEC |
 | **Calculadora Actuarial** | [Acceder](https://genesisfinal.github.io/calculadora-actuarial/) | Biometría, Reservas & Primas |
