@@ -1222,8 +1222,8 @@
         </div>
       </article>
 
-      <!-- 3. Tablero de Seguros -->
-      <article class="card" data-category="seguros" data-tags="seguros ssn mercado asegurador produccion primas ramos automotores art vida retiro siniestralidad juicios ranking">
+      <!-- 3. Tablero de Seguros v2 -->
+      <article class="card" data-category="seguros" data-tags="seguros ssn mercado asegurador produccion primas ramos automotores art vida retiro siniestralidad juicios ranking v2 bases">
         <div class="card-accent-bar"></div>
         <div class="card-body">
           <div class="card-header-top">
@@ -1232,7 +1232,7 @@
             </div>
             <span class="category-chip">Mercado Asegurador SSN</span>
           </div>
-          <h3 class="card-title">Tablero de Seguros</h3>
+          <h3 class="card-title">Tablero de Seguros v2</h3>
           <div class="card-tags">
             <span class="card-tag">Producción SSN</span>
             <span class="card-tag">Primas por Ramo</span>
@@ -1240,7 +1240,7 @@
           </div>
         </div>
         <div class="card-footer">
-          <a href="https://genesisfinal.github.io/tablero-seguros/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+          <a href="https://genesisfinal.github.io/tablero-seguros-v2/" target="_blank" rel="noopener noreferrer" class="btn-launch">
             <span>Abrir Tablero</span>
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
@@ -1255,10 +1255,10 @@
             <i class="fa-solid fa-circle-info overlay-info-icon"></i>
           </div>
           <p class="overlay-text">
-            Análisis integral del mercado asegurador argentino: primas emitidas por ramo (Automotores, ART, Vida, Retiro, Patrimoniales), siniestralidad devengada y juicios con datos oficiales de la SSN.
+            Análisis integral del mercado asegurador argentino (Bases SSN): primas emitidas por ramo (Automotores, ART, Vida, Retiro, Patrimoniales), siniestralidad devengada y juicios con datos consolidados oficiales.
           </p>
           <div class="overlay-footer">
-            <a href="https://genesisfinal.github.io/tablero-seguros/" target="_blank" rel="noopener noreferrer" class="overlay-btn-launch">
+            <a href="https://genesisfinal.github.io/tablero-seguros-v2/" target="_blank" rel="noopener noreferrer" class="overlay-btn-launch">
               <span>Abrir Tablero</span>
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </a>
@@ -1600,7 +1600,7 @@
           <ul>
             <li><a href="https://genesisfinal.github.io/tablero-retiro/" target="_blank"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem;"></i> Tablero de Retiro</a></li>
             <li><a href="https://genesisfinal.github.io/tablero-sinensup/" target="_blank"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem;"></i> Balances de Aseguradoras</a></li>
-            <li><a href="https://genesisfinal.github.io/tablero-seguros/" target="_blank"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem;"></i> Tablero de Seguros</a></li>
+            <li><a href="https://genesisfinal.github.io/tablero-seguros-v2/" target="_blank"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem;"></i> Tablero de Seguros v2</a></li>
             <li><a href="https://genesisfinal.github.io/tablero-economia/" target="_blank"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem;"></i> Indicadores Económicos</a></li>
           </ul>
         </div>
@@ -1628,14 +1628,14 @@
     // Base de datos de detalles de cada tablero
     const dashboardDetails = {
       seguros: {
-        title: 'Tablero de Seguros | Mercado Asegurador Argentino',
-        description: 'Plataforma interactiva para el análisis de producción de primas por ramo, siniestralidad devengada, juicios y evolución del mercado asegurador argentino.',
-        url: 'https://genesisfinal.github.io/tablero-seguros/',
+        title: 'Tablero de Seguros v2 | Mercado Asegurador Argentino (Bases SSN)',
+        description: 'Plataforma interactiva para el análisis de producción de primas por ramo, siniestralidad devengada, juicios y evolución del mercado asegurador argentino con bases oficiales SSN.',
+        url: 'https://genesisfinal.github.io/tablero-seguros-v2/',
         features: [
           'Producción y evolución de primas emitidas por ramo (Automotores, ART, Vida, Retiro, Patrimoniales).',
           'Siniestralidad técnica devengada y litigiosidad / juicios en trámite.',
-          'Indicadores clave de primaje y penetración en el mercado asegurador.',
-          'Fuente oficial: Superintendencia de Seguros de la Nación (SSN).'
+          'Indicadores clave de primaje, rankings y penetración en el mercado asegurador.',
+          'Fuente oficial: Bases de la Superintendencia de Seguros de la Nación (SSN).'
         ]
       },
       economia: {
