@@ -10,6 +10,7 @@ Diseñado y estructurado bajo los lineamientos oficiales de identidad visual del
 
 | Herramienta / Monitor | URL | Categoría |
 | :--- | :--- | :--- |
+| **Tablero de Personas** | [Acceder](https://genesisfinal.github.io/tablero-personas/) | Seguros de Personas, Vida & AP |
 | **Tablero de Retiro** | [Acceder](https://genesisfinal.github.io/tablero-retiro/) | Fondos & Cuentas Individuales |
 | **Balances de Aseguradoras** | [Acceder](https://genesisfinal.github.io/tablero-sinensup/) | Balances, Solvencia & SSN |
 | **Tablero de Seguros v2** | [Acceder](https://genesisfinal.github.io/tablero-seguros-v2/) | Mercado Asegurador Argentino (Bases SSN) |
